@@ -1,0 +1,5 @@
+<application>
+  <component name="ExternalResourceManagerImpl">
+    <ignored-resource url="https://pmd.sourceforge.net/ruleset_2_0_0.xsd" />
+  </component>
+</application>
