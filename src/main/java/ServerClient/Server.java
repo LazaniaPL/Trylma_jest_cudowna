@@ -1,4 +1,10 @@
 package ServerClient;
 
-public class Server {
+public class Server implements Runnable {
+
+
+
+    public void run() {
+
+    }
 }
