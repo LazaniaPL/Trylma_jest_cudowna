@@ -19,7 +19,6 @@ public class TrylmaBuilder implements TrylmaInterface {
 
     @Override
     public void setTrylma(GridPane trylma) {
-        trylma = new GridPane();
         this.trylma = trylma;
     }
 
@@ -55,25 +54,60 @@ public class TrylmaBuilder implements TrylmaInterface {
      */
     @Override
     public void whatIsObject() {
-        //rectangle
+        //kwadrat
+
         for (int i = 0; i < (4 * scale) + 1; i++) { //wysokosc
             for (int i1 = 0; i1 < scale + 1; i1++) {
-                trylma.add(new Rectangle(20,20), scale + 2 * i1, scale + i);
+                trylma.add(new Rectangle(20, 20), scale + 2 * i1, scale + i);
+
             }
             i++;
         }
+
         for (int i = 1; i < (4 * scale) + 1; i++) {
             for (int i2 = 0; i2 < scale; i2++) {
-                trylma.add(new Rectangle(20,20), scale + 1 + 2 * i2, scale + i);
+                trylma.add(new Rectangle(20, 20), scale + 1 + 2 * i2, scale + i);
+
             }
             i++;
         }
-        //triangle
-        for (int i = 0; i <  scale; i++) { //szerokosc
+        //trójkąty boczne równoramienne
 
-            trylma.add(new Rectangle(), i, scale + 1 + 1);
+
+        for (int szerokosc = 0; szerokosc < scale; szerokosc++) {
+
+            for (int tempWysokosc = 0; tempWysokosc < szerokosc + 1; tempWysokosc++) {
+                //lewy trójkąt
+               trylma.add(new Rectangle(20, 20), szerokosc,
+                       3 * scale + 1 - szerokosc + 2 * tempWysokosc);
+                //prawy trójkąt
+                trylma.add(new Rectangle(20, 20), 4 * scale - szerokosc,
+                       3 * scale + 1 - szerokosc + 2 * tempWysokosc);
+            }
 
         }
+
+        //trójkąty boczne prostokątne
+        for (int i = 0; i < scale; i++) {
+            for (int i1 = 0; i1 < i + 1; i1++) {
+                trylma.add(new Rectangle(20, 20), scale + 2 * i1, i);//lewy dolny róg
+                trylma.add(new Rectangle(20, 20), scale + 2 * i1, 6 * scale - i); //lewy górny róg
+                trylma.add(new Rectangle(20, 20), 3 * scale - 2 * i1, i);//prawy dolny róg
+                trylma.add(new Rectangle(20, 20), 3 * scale - 2 * i1, 6 * scale - i); //prawy górny róg
+            }
+            i++;
+        }
+        for (int i = 1; i < scale; i++) {
+            for (int i2 = 0; i2 < i; i2++) {
+                trylma.add(new Rectangle(20, 20), scale + 1 + 2 * i2, i);//lewy dolny róg
+                trylma.add(new Rectangle(20, 20), scale + 1 + 2 * i2, 6 * scale - i); //lewy górny róg
+                trylma.add(new Rectangle(20, 20), 3 * scale + 1 - 2 * i2, i);//prawy dolny róg
+                trylma.add(new Rectangle(20, 20), 3 * scale + 1 - 2 * i2, 6 * scale - i); //prawy górny róg
+
+            }
+            i++;
+        }
+
 
     }
 
