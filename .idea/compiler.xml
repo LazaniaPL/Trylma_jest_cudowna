@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Macyna-Wpierdol" target="1.5" />
+      <module name="Macyna-Wpierdol" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>
