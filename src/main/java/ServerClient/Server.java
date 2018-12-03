@@ -4,28 +4,58 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Server {
 
-    static final int PORT = 6666;
+public class Server implements Runnable {
 
-    public static void main(String args[]) {
-        ServerSocket serverSocket = null;
-        Socket socket = null;
+    protected int serverPort = 6666;
+    protected ServerSocket serverSocket = null;
+    protected Thread runningThread = null;
+    protected boolean isClosed = false;
 
-        try {
-            serverSocket = new ServerSocket(PORT);
-        } catch (IOException e) {
-            e.printStackTrace();
+    public Server(int port){
+        this.serverPort = port;
+    }
 
+    @Override
+    public void run() {
+        synchronized (this){
+            this.runningThread =  Thread.currentThread();
         }
-        while (true) {
-            try {
-                socket = serverSocket.accept();
-            } catch (IOException e) {
-                System.out.println("I/O error: " + e);
-            }
-            // new thread for a client
-            new PlayerThread(socket).start();
+        openServerSocket();
+        while(!isClosed()){
+         Socket clientSocket = null;
+         try{
+             clientSocket = this.serverSocket.accept();
+         } catch (IOException e) {
+             if(isClosed()){
+                 System.out.println("SERVER STOPPED");
+                 return;
+             }
+             throw new RuntimeException("ERROR ACCEPTING CLIENT", e);
+         }
+         new Thread(new Client(clientSocket, "MULTICULTISERVER")).start();
+        }
+        System.out.println("SERVER STOPPED");
+    }
+
+    public synchronized void stop(){
+        this.isClosed = true;
+        try {
+            this.serverSocket.close();
+        } catch (IOException e) {
+            throw new RuntimeException("ERROR CLOSING SERVER", e);
         }
     }
+
+    private void openServerSocket() {
+        try {
+            this.serverSocket = new ServerSocket(this.serverPort);
+        } catch (IOException e) {
+            throw new RuntimeException("cannot open port: " + serverPort, e);
+        }
+    }
+    private synchronized boolean isClosed(){
+        return this.isClosed;
+    }
+
 }
