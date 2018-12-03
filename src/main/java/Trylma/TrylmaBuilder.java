@@ -1,7 +1,8 @@
+package Trylma;
+
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
-import javafx.scene.text.Text;
 
 import java.util.ArrayList;
 
@@ -54,14 +55,23 @@ public class TrylmaBuilder implements TrylmaInterface {
      */
     @Override
     public void whatIsObject() {
-        for (int i = 0; i <= (4 * scale) + 1; i++) {
+        //rectangle
+        for (int i = 0; i < (4 * scale) + 1; i++) { //wysokosc
             for (int i1 = 0; i1 < scale + 1; i1++) {
-                trylma.add(new Rectangle(), scale + 2 * i1, scale + i);
+                trylma.add(new Rectangle(20,20), scale + 2 * i1, scale + i);
             }
             i++;
+        }
+        for (int i = 1; i < (4 * scale) + 1; i++) {
             for (int i2 = 0; i2 < scale; i2++) {
-                trylma.add(new Rectangle(), scale + 1 + 2 * i2, scale + i);
+                trylma.add(new Rectangle(20,20), scale + 1 + 2 * i2, scale + i);
             }
+            i++;
+        }
+        //triangle
+        for (int i = 0; i <  scale; i++) { //szerokosc
+
+            trylma.add(new Rectangle(), i, scale + 1 + 1);
 
         }
 

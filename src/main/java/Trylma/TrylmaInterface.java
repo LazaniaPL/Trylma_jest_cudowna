@@ -1,3 +1,5 @@
+package Trylma;
+
 import javafx.scene.layout.GridPane;
 
 public interface TrylmaInterface {
