@@ -7,7 +7,7 @@ import java.net.Socket;
 
 public class Server implements Runnable {
 
-    protected int serverPort = 6666;
+    protected int serverPort;
     protected ServerSocket serverSocket = null;
     protected Thread runningThread = null;
     protected boolean isClosed = false;
@@ -33,7 +33,7 @@ public class Server implements Runnable {
              }
              throw new RuntimeException("ERROR ACCEPTING CLIENT", e);
          }
-         new Thread(new Client(clientSocket, "MULTICULTISERVER")).start();
+         new Thread(new WorkingThread(clientSocket, "Server")).start();
         }
         System.out.println("SERVER STOPPED");
     }

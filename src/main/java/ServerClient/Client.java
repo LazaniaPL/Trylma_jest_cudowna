@@ -1,30 +1,30 @@
 package ServerClient;
 
+
+
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.Scanner;
 
-public class Client implements Runnable {
+public class Client {
 
-    protected Socket clientSocket = null;
-    protected String messageText = null;
+//testing testing 123
 
-    public Client(Socket clientSocket, String messageText){
-        this.clientSocket = clientSocket;
-        this.messageText = messageText;
-    }
-
-    @Override
-    public void run() {
-        try{
-            InputStream inputStream = clientSocket.getInputStream();
-            OutputStream outputStream = clientSocket.getOutputStream();
-            long time = System.currentTimeMillis();
-            outputStream.write(("\n\nHTTP/1.1 200 OK\n\nCLIENT: " + this.messageText + " - " + time).getBytes());
-            outputStream.close();
-            inputStream.close();
-            System.out.println("Request processed: " + time);
+    public static void main(String args[]){
+        try {
+            Socket socket = new Socket("localhost", 8080);
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            PrintWriter printWriter = new PrintWriter(socket.getOutputStream(),true);
+            while (true){
+                String line = bufferedReader.readLine();
+                System.out.println(line);
+                Scanner input = new Scanner(System.in);
+                String dziava = input.nextLine();
+                printWriter.println(dziava);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
