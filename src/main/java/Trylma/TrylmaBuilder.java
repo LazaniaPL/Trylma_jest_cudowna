@@ -100,10 +100,10 @@ public class TrylmaBuilder implements TrylmaInterface {
         }
         for (int i = 1; i < scale; i += 2) {
             for (int i2 = 0; i2 < i ; i2+=2) { // nieparzyste kwadraty
-                trylma.add(new Rectangle(20, 20), scale + 1 + 2 * i2, i);//lewy dolny róg
-                trylma.add(new Rectangle(20, 20), scale + 1 + 2 * i2, 6 * scale - i); //lewy górny róg
-                trylma.add(new Rectangle(20, 20), 3 * scale + 1 - 2 * i2, i);//prawy dolny róg
-                trylma.add(new Rectangle(20, 20), 3 * scale + 1 - 2 * i2, 6 * scale - i); //prawy górny róg
+                trylma.add(new Rectangle(20, 20), scale + 1 + i2, i);//lewy dolny róg
+                trylma.add(new Rectangle(20, 20), scale + 1 +  i2, 6 * scale - i); //lewy górny róg
+                trylma.add(new Rectangle(20, 20), 3 * scale + 1 -  i2, i);//prawy dolny róg
+                trylma.add(new Rectangle(20, 20), 3 * scale + 1 -  i2, 6 * scale - i); //prawy górny róg
                 numberOfObjects = numberOfObjects + 4;
 
                 System.out.println(a);
