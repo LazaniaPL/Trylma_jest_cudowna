@@ -5,6 +5,8 @@ import java.net.Socket;
 
 public class WorkingThread implements Runnable {
 
+    //TODO: LOGIKA RUCHÓW
+
     private BufferedReader in;
     private PrintWriter out;
     private Socket clientSocket;

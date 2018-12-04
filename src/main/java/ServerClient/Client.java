@@ -1,7 +1,5 @@
 package ServerClient;
 
-
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -11,7 +9,9 @@ import java.util.Scanner;
 
 public class Client {
 
-//testing testing 123
+    //TODO: TWORZENIE OBEKTU PLANSZY, WRAZ Z PIONKAMI, DANY KLIENT MOŻE RUSZAĆ TYLKO JEDNYM ZESTAWEM PIONKÓW
+    //TODO: KOLEJKOWANIE RUCHÓW - POMYSŁ - RUCH DOPIERO PO OTRZYMANIU ZEZWOLENIA OD SERVERA, WYŚWIETLANIE WSKAŹNIKA "TWÓJ RUCH"
+    //TODO: WYSYŁANIE IDENTYFIKACJI RUCHU DO SERVERA
 
     public static void main(String args[]){
         try {
@@ -19,11 +19,12 @@ public class Client {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             PrintWriter printWriter = new PrintWriter(socket.getOutputStream(),true);
             while (true){
+                // testing
                 String line = bufferedReader.readLine();
                 System.out.println(line);
-                Scanner input = new Scanner(System.in);
-                String dziava = input.nextLine();
-                printWriter.println(dziava);
+                //Scanner input = new Scanner(System.in);
+                //String dziava = input.nextLine();
+                //printWriter.println(dziava);
             }
         } catch (IOException e) {
             e.printStackTrace();

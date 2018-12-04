@@ -9,17 +9,17 @@ public class Server implements Runnable {
 
     protected int serverPort;
     protected ServerSocket serverSocket = null;
-    protected Thread runningThread = null;
     protected boolean isClosed = false;
+    protected Thread runningThread = null;
 
-    public Server(int port){
+    Server(int port){
         this.serverPort = port;
     }
 
     @Override
     public void run() {
         synchronized (this){
-            this.runningThread =  Thread.currentThread();
+             this.runningThread = Thread.currentThread();
         }
         openServerSocket();
         while(!isClosed()){
@@ -38,7 +38,7 @@ public class Server implements Runnable {
         System.out.println("SERVER STOPPED");
     }
 
-    public synchronized void stop(){
+    synchronized void stop(){
         this.isClosed = true;
         try {
             this.serverSocket.close();
