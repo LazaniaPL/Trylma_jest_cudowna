@@ -9,17 +9,17 @@ class Trylma extends TrylmaBuilder {
 
 
     @Test
-    void sizeOfTrylma() {
+    void lengthOfTrylma() {
         //szerokość to 4 * scale + 1
         //długość to 6 * scale + 1
 
         TrylmaBuilder trylmaBuilderTest = new TrylmaBuilder();
-        trylmaBuilderTest.scale = 6;
-        GridPane test = new GridPane();
+        trylmaBuilderTest.scale = 2;
+        int[][] test = new int[4 * trylmaBuilderTest.scale + 1][6 * trylmaBuilderTest.scale + 1];
         trylmaBuilderTest.setTrylma(test);
         trylmaBuilderTest.whatIsObject();
-        assertEquals(4 * trylmaBuilderTest.scale + 1, test.impl_getColumnCount()); //szerokosc
-        assertEquals(6 * trylmaBuilderTest.scale + 1, test.impl_getRowCount()); //dlugosc
+        assertEquals(4 * trylmaBuilderTest.scale + 1, test.length); //szerokosc
+
 
     }
 
@@ -30,8 +30,7 @@ class Trylma extends TrylmaBuilder {
 
         TrylmaBuilder trylmaBuilderTest = new TrylmaBuilder();
         trylmaBuilderTest.scale = 77;
-
-        GridPane test = new GridPane();
+        int[][] test = new int[4 * trylmaBuilderTest.scale + 1][6 * trylmaBuilderTest.scale + 1];
         trylmaBuilderTest.setTrylma(test);
         trylmaBuilderTest.whatIsObject();
         assertEquals(numbersOfObjects(trylmaBuilderTest.scale), trylmaBuilderTest.numberOfObjects);
