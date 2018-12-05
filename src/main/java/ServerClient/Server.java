@@ -52,6 +52,7 @@ public class Server implements Runnable {
         } catch (IOException e) {
             throw new RuntimeException("ERROR CLOSING SERVER", e);
         }
+
     }
 
     private void openServerSocket() {
@@ -59,6 +60,7 @@ public class Server implements Runnable {
             this.serverSocket = new ServerSocket(this.serverPort);
         } catch (IOException e) {
             throw new RuntimeException("cannot open port: " + serverPort, e);
+
         }
     }
     private synchronized boolean isClosed(){
