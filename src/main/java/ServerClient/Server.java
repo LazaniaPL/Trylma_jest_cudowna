@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 
 public class Server implements Runnable {
@@ -12,9 +13,13 @@ public class Server implements Runnable {
     protected ServerSocket serverSocket = null;
     protected volatile boolean  isClosed = false;
     protected Thread runningThread = null;
+    protected ExecutorService threadPool;
+    protected int playerNumber;
 
-    Server(int port){
+    Server(int port, int playerNumber) {
         this.serverPort = port;
+        this.playerNumber = playerNumber;
+        this.threadPool = Executors.newFixedThreadPool(playerNumber);
     }
 
     @Override
@@ -34,8 +39,9 @@ public class Server implements Runnable {
              }throw new RuntimeException("ERROR ACCEPTING CLIENT", e);
          }
          //TODO: USTAWIĆ ITERATOR NA messegeText ZEBY ROZRÓZNIĆ MIĘDZY THREADAMI
-         new Thread(new WorkingThread(clientSocket, "Server")).start();
+         this.threadPool.execute(new WorkingThread(clientSocket, "Server"));
         }
+        this.threadPool.shutdown();
         System.out.println("SERVER STOPPED");
     }
 

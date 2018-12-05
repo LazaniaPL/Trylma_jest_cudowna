@@ -23,6 +23,7 @@ public class WorkingThread implements Runnable {
             PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
             out.println("Server is working " + time + "  enter text: \n");
             while (true){
+                messageText = in.readLine();
                 System.out.println(messageText);
                 if( messageText.equals("not")){
 
