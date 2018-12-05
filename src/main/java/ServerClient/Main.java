@@ -1,20 +1,17 @@
 package ServerClient;
 
+import java.net.SocketException;
+import java.util.Scanner;
+
 public class Main{
 
     //TODO: PEŁNA PĘTLA AŻ DO WPROWADZENIA SYGNAŁU DO ZAMKNIĘCIA
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception, SocketException {
 
-        Server server = new Server(8080);
-        new Thread(server).start();
+        Server server = new Server(8088);
         //JAKIEŚ RANDOMOWE TESTOWANIE
-        try{
-            Thread.sleep( 80* 1000);
-        } catch (InterruptedException e){
-            e.printStackTrace();
-        }
-        System.out.println("SERVER STOPPED");
-        server.stop();
+        server.run();
+
     }
 }

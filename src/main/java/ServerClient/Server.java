@@ -3,13 +3,14 @@ package ServerClient;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.concurrent.ExecutorService;
 
 
 public class Server implements Runnable {
 
     protected int serverPort;
     protected ServerSocket serverSocket = null;
-    protected boolean isClosed = false;
+    protected volatile boolean  isClosed = false;
     protected Thread runningThread = null;
 
     Server(int port){
@@ -22,7 +23,7 @@ public class Server implements Runnable {
              this.runningThread = Thread.currentThread();
         }
         openServerSocket();
-        while(!isClosed()){
+        while(! isClosed()){
          Socket clientSocket = null;
          try{
              clientSocket = this.serverSocket.accept();
@@ -30,15 +31,15 @@ public class Server implements Runnable {
              if(isClosed()){
                  System.out.println("SERVER STOPPED");
                  return;
-             }
-             throw new RuntimeException("ERROR ACCEPTING CLIENT", e);
+             }throw new RuntimeException("ERROR ACCEPTING CLIENT", e);
          }
+         //TODO: USTAWIĆ ITERATOR NA messegeText ZEBY ROZRÓZNIĆ MIĘDZY THREADAMI
          new Thread(new WorkingThread(clientSocket, "Server")).start();
         }
         System.out.println("SERVER STOPPED");
     }
 
-    synchronized void stop(){
+    public synchronized void stop(){
         this.isClosed = true;
         try {
             this.serverSocket.close();
