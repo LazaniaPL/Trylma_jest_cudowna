@@ -5,34 +5,21 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-class Trylma extends TrylmaBuilder {
+class Trylma  {
 
 
-    @Test
-    void lengthOfTrylma() {
-        //szerokość to 4 * scale + 1
-        //długość to 6 * scale + 1
 
-        TrylmaBuilder trylmaBuilderTest = new TrylmaBuilder();
-        trylmaBuilderTest.scale = 2;
-        int[][] test = new int[4 * trylmaBuilderTest.scale + 1][6 * trylmaBuilderTest.scale + 1];
-        trylmaBuilderTest.setTrylma(test);
-        trylmaBuilderTest.whatIsObject();
-        assertEquals(4 * trylmaBuilderTest.scale + 1, test.length); //szerokosc
-
-
-    }
 
 
     @Test
     void howMuchObjects() {
 
 
-        TrylmaBuilder trylmaBuilderTest = new TrylmaBuilder();
-        trylmaBuilderTest.scale = 77;
-        int[][] test = new int[4 * trylmaBuilderTest.scale + 1][6 * trylmaBuilderTest.scale + 1];
-        trylmaBuilderTest.setTrylma(test);
-        trylmaBuilderTest.whatIsObject();
+        TrylmaBuilder trylmaBuilderTest = new TrylmaBuilder(77);
+        //trylmaBuilderTest.scale = 77;
+        //int[][] test = new int[4 * trylmaBuilderTest.scale + 1][6 * trylmaBuilderTest.scale + 1];
+        //trylmaBuilderTest.setTrylma(test);
+        //trylmaBuilderTest.whatIsObject();
         assertEquals(numbersOfObjects(trylmaBuilderTest.scale), trylmaBuilderTest.numberOfObjects);
 
 

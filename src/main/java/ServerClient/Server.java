@@ -25,7 +25,7 @@ public class Server {
                 System.out.println("I/O error: " + e);
             }
             // new thread for a client
-            new PlayerThread(socket).start();
+       //     new PlayerThread(socket).start();
         }
     }
 }

@@ -10,12 +10,23 @@ import java.util.ArrayList;
 
 public class TrylmaBuilder implements TrylmaInterface {
 
+    public TrylmaBuilder(int scale) {
+        scaleTrylma(scale);
+        setTrylma(createTrylma(scale));
+        whatIsObject();
+    }
+
     public int scale;
     public int[][] trylma;
     /**
      * Używam tego do testów
      */
     public int numberOfObjects = 0;
+
+    public int[][] createTrylma(int scale) {
+
+        return new int[4 * scale + 1][6 * scale + 1];
+    }
 
     @Override
     public void scaleTrylma(int scale) {
@@ -25,44 +36,6 @@ public class TrylmaBuilder implements TrylmaInterface {
     @Override
     public void setTrylma(int[][] trylma) {
         this.trylma = trylma;
-    }
-
-    @Override
-    public void createPawn(int[][] trylma, int a, int b, int pawn) {
-        if (2 <= pawn && pawn <= 7) {
-            trylma[a][b] = pawn;
-        }
-    }
-
-    @Override
-    public void createPlayerA(int[][] trylma, int scale) {
-
-
-    }
-
-    @Override
-    public void createPlayerB(int[][] trylma, int scale) {
-
-    }
-
-    @Override
-    public void createPlayerC(int[][] trylma, int scale) {
-
-    }
-
-    @Override
-    public void createPlayerD(int[][] trylma, int scale) {
-
-    }
-
-    @Override
-    public void createPlayerE(int[][] trylma, int scale) {
-
-    }
-
-    @Override
-    public void createPlayerF(int[][] trylma, int scale) {
-
     }
 
 
@@ -92,7 +65,7 @@ public class TrylmaBuilder implements TrylmaInterface {
         for (int i = 0; i <= (4 * scale); i += 2) { //wysokosc
             for (int i1 = 0; i1 < scale + (scale + 1) % 2; i1++) { //nieparzyste
 
-                trylma[scale + 1 + 2 * i1][scale + i] = 1;
+                trylma[scale + scale % 2 + 2 * i1][scale + i] = 1;
 
                 numberOfObjects = numberOfObjects + 1;
 
@@ -103,7 +76,7 @@ public class TrylmaBuilder implements TrylmaInterface {
 
         for (int i = 1; i < (4 * scale); i += 2) {
             for (int i2 = 0; i2 < scale + scale % 2; i2++) { // parzyste
-                trylma[scale + 2 * i2][scale + i] = 1;
+                trylma[scale + (scale + 1) % 2 + 2 * i2][scale + i] = 1;
                 numberOfObjects = numberOfObjects + 1;
 
             }
@@ -117,37 +90,36 @@ public class TrylmaBuilder implements TrylmaInterface {
 
             for (int tempWysokosc = 0; tempWysokosc <= szerokosc; tempWysokosc++) {
                 //lewy trójkąt
-                trylma[szerokosc][3 * scale + 1 - szerokosc + 2 * tempWysokosc] = 1;
+                trylma[szerokosc][3 * scale - szerokosc + 2 * tempWysokosc] = 1;
                 //prawy trójkąt
                 trylma[4 * scale - szerokosc][
-                        3 * scale + 1 - szerokosc + 2 * tempWysokosc] = 1;
+                        3 * scale - szerokosc + 2 * tempWysokosc] = 1;
                 numberOfObjects = numberOfObjects + 2;
 
             }
-
         }
 
         //trójkąty boczne prostokątne
         for (int i = 0; i < scale; i += 2) {
             for (int i1 = 0; i1 <= i; i1 += 2) { // parzyste kwadraty ( w tej samej linii są)
-                trylma[scale + i1][i] = 1;//lewy dolny róg
-                trylma[scale + i1][6 * scale - i] = 1; //lewy górny róg
-                trylma[3 * scale - i1][i] = 1;//prawy dolny róg
-                trylma[3 * scale - i1][6 * scale - i] = 1; //prawy górny róg
+                trylma[scale + i1][i] = 1;//lewy górny róg
+                trylma[scale + i1][6 * scale - i] = 1; //lewy dolny róg
+                trylma[3 * scale - i1][i] = 1;//prawy górny róg
+                trylma[3 * scale - i1][6 * scale - i] = 1; //prawy dolny róg
                 numberOfObjects = numberOfObjects + 4;
 
 
             }
 
         }
+
         for (int i = 1; i < scale; i += 2) {
             for (int i2 = 0; i2 < i; i2 += 2) { // nieparzyste kwadraty
-                trylma[scale + 1 + i2][i] = 1;//lewy dolny róg
-                trylma[scale + 1 + i2][6 * scale - i] = 1; //lewy górny róg
-                trylma[3 * scale + 1 - i2][i] = 1;//prawy dolny róg
-                trylma[3 * scale + 1 - i2][6 * scale - i] = 1; //prawy górny róg
+                trylma[scale + 1 + i2][i] = 1;//lewy górny róg
+                trylma[scale + 1 + i2][6 * scale - i] = 1; //lewy dolny róg
+                trylma[3 * scale - 1 - i2][i] = 1;//prawy gorny róg
+                trylma[3 * scale - 1- i2][6 * scale - i] = 1; //prawy dolny róg
                 numberOfObjects = numberOfObjects + 4;
-
 
             }
 

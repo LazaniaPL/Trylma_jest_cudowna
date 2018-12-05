@@ -15,19 +15,6 @@ public interface TrylmaInterface {
      * 3* Sigma k od @param k = 0 do  @param scale
      */
 
-    void createPawn(int[][] trylma, int a, int b, int pawn);
-
-    void createPlayerA(int[][] trylma, int scale);
-
-    void createPlayerB(int[][] trylma, int scale);
-
-    void createPlayerC(int[][] trylma, int scale);
-
-    void createPlayerD(int[][] trylma, int scale);
-
-    void createPlayerE(int[][] trylma, int scale);
-
-    void createPlayerF(int[][] trylma, int scale);
 
     void whatIsObject();
 
