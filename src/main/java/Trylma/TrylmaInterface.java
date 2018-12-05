@@ -1,13 +1,12 @@
 package Trylma;
 
-import javafx.scene.layout.GridPane;
 
 public interface TrylmaInterface {
 
 
     void scaleTrylma(int scale);
 
-    void setTrylma(GridPane trylma);
+    void setTrylma(int[][] trylma);
 
     /**
      * Godzina 1:55, a ja zamiast spać wymyślilem ile pól w trylmie jest ech.
@@ -16,9 +15,22 @@ public interface TrylmaInterface {
      * 3* Sigma k od @param k = 0 do  @param scale
      */
 
+    void createPawn(int[][] trylma, int a, int b, int pawn);
+
+    void createPlayerA(int[][] trylma, int scale);
+
+    void createPlayerB(int[][] trylma, int scale);
+
+    void createPlayerC(int[][] trylma, int scale);
+
+    void createPlayerD(int[][] trylma, int scale);
+
+    void createPlayerE(int[][] trylma, int scale);
+
+    void createPlayerF(int[][] trylma, int scale);
 
     void whatIsObject();
 
-    void removeKebabTrylma(GridPane trylma);
+    void removeKebabTrylma(int[][] trylma);
 
 }
