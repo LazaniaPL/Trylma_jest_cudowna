@@ -45,9 +45,9 @@ public class Main extends Application {
 
                     int scale = Integer.parseInt(textFieldScale.getText());
                     TrylmaBuilder trylmaBuilder = new TrylmaBuilder(scale);
-                    Button[][] btn = new Button[4 * scale + 1][6 * scale + 1];
-                    for (int i = 0; i < 4 * scale + 1; i++) {
-                        for (int j = 0; j < 6 * scale + 1; j++) {
+                    Button[][] btn = new Button[6 * scale + 1][4 * scale + 1];
+                    for (int i = 0; i < 6 * scale + 1; i++) {
+                        for (int j = 0; j < 4 * scale + 1; j++) {
                             if (trylmaBuilder.trylma[i][j] == 1) {
                                 btn[i][j] = new Button("T");
                                 btn[i][j].setPrefSize(65, 65);
