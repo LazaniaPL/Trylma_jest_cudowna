@@ -9,7 +9,7 @@ public class PlayerC implements Player {
 
             for (int tempWysokosc = 0; tempWysokosc <= szerokosc; tempWysokosc++) {
                 //lewy trójkąt
-                trylma[2 * scale + 1 + szerokosc][6 * scale - 1 - szerokosc + 2 * tempWysokosc] = 4;
+                trylma[scale-1 -szerokosc + 2 * tempWysokosc][2*scale+1+ szerokosc] = 4;
 
 
             }

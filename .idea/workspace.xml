@@ -2,21 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d3574478-9a66-42dc-9ea2-b3d65faa34a2" name="Default Changelist" comment="ja to naprawie">
-
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Trylma/TrylmaBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Trylma/TrylmaBuilder.java" afterDir="false" />
-
-      <change afterPath="$PROJECT_DIR$/src/main/java/ServerClient/MainWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ServerClient/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServerClient/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ServerClient/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ServerClient/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServerClient/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ServerClient/WorkingThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServerClient/WorkingThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ServerClient/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServerClient/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ServerClient/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ServerClient/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServerClient/Server.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ServerClient/WorkingThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServerClient/WorkingThread.class" afterDir="false" />
-
+      <change beforePath="$PROJECT_DIR$/src/main/java/Trylma/TrylmaPawns.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Trylma/TrylmaPawns.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Trylma/gui/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Trylma/gui/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Trylma/players/PlayerA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Trylma/players/PlayerA.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Trylma/players/PlayerB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Trylma/players/PlayerB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Trylma/players/PlayerC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Trylma/players/PlayerC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Trylma/players/PlayerD.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Trylma/players/PlayerD.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Trylma/players/PlayerE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Trylma/players/PlayerE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Trylma/players/PlayerF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Trylma/players/PlayerF.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -33,157 +27,79 @@
       </map>
     </option>
   </component>
-
-  <component name="FUSProjectUsageTrigger">
-    <session id="1184849102">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="17" />
-          <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.open.time.6" value="8" />
-          <entry key="project.open.time.7" value="6" />
-          <entry key="project.open.time.8" value="2" />
-          <entry key="project.opened" value="18" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="java" value="15" />
-          <entry key="xml" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="JAVA" value="15" />
-          <entry key="XML" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="java" value="5217" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="JAVA" value="5217" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
-
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/gui/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="50" column="54" lean-forward="true" selection-start-line="50" selection-start-column="54" selection-end-line="50" selection-end-column="54" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2778#2779#0" expanded="true" />
-                <element signature="e#2806#2807#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/TrylmaBuilder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="67">
-              <caret line="144" column="37" selection-start-line="144" selection-start-column="37" selection-end-line="144" selection-end-column="37" />
-              <folding>
-                <element signature="e#4756#4757#0" expanded="true" />
-                <element signature="e#4785#4786#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-
-        <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/TrylmaPawns.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-51">
-              <caret line="6" selection-start-line="6" selection-end-line="6" />
-
-        <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/WorkingThread.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="25" column="44" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
+            <state relative-caret-position="-1475">
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#761#762#0" expanded="true" />
+                <element signature="e#795#796#0" expanded="true" />
+                <element signature="e#854#855#0" expanded="true" />
+                <element signature="e#890#891#0" expanded="true" />
+                <element signature="e#5438#5439#0" expanded="true" />
+                <element signature="e#5467#5468#0" expanded="true" />
               </folding>
-
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/Client.java">
-          <provider selected="true" editor-type-id="text-editor">
-
-            <state relative-caret-position="609">
-              <caret line="34" selection-start-line="34" selection-end-line="34" />
-
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-
-        <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/players/PlayerA.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
-
-        <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/Server.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="21" selection-start-column="21" selection-end-column="21" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/MainWindow.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/gui/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="438">
-              <caret line="72" column="90" selection-start-line="72" selection-start-column="90" selection-end-line="72" selection-end-column="90" />
-
+            <state relative-caret-position="459">
+              <caret line="99" column="74" selection-start-line="99" selection-start-column="74" selection-end-line="99" selection-end-column="74" />
+              <folding>
+                <element signature="e#5983#5984#0" expanded="true" />
+                <element signature="e#6011#6012#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-
         <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/players/PlayerC.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
-
-        <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/MoveType.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="63">
-              <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
-
+            <state relative-caret-position="187">
+              <caret line="11" column="82" selection-start-line="11" selection-start-column="62" selection-end-line="11" selection-end-column="82" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-
-        <entry file="file://$PROJECT_DIR$/src/main/test/Trylma.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/players/PlayerE.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="98" />
-
-        <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/PawnColors.java">
+            <state relative-caret-position="170">
+              <caret line="10" column="66" selection-start-line="10" selection-start-column="66" selection-end-line="10" selection-end-column="66" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/players/PlayerF.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="6" selection-end-column="14" />
-
+            <state relative-caret-position="187">
+              <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="66" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/players/PlayerB.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/players/PlayerA.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -193,12 +109,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-
         <option value="Interface" />
         <option value="FxmlFile" />
-
         <option value="Enum" />
-
         <option value="Class" />
         <option value="Singleton" />
       </list>
@@ -221,35 +134,31 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
-
         <option value="$PROJECT_DIR$/src/main/java/ServerClient/Client.java" />
         <option value="$PROJECT_DIR$/src/main/test/TrylmaCountOfObjects.java" />
         <option value="$PROJECT_DIR$/src/main/java/ServerClient/Server.java" />
         <option value="$PROJECT_DIR$/src/main/java/ServerClient/Server.java" />
         <option value="$PROJECT_DIR$/src/main/java/Trylma/PawnInterface.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Trylma/players/PlayerA.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Trylma/players/PlayerB.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Trylma/players/PlayerC.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Trylma/players/PlayerD.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Trylma/players/PlayerE.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Trylma/players/PlayerF.java" />
         <option value="$PROJECT_DIR$/src/main/java/resources.java" />
         <option value="$PROJECT_DIR$/src/main/java/resources/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/Trylma/gui/gui.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/Trylma/TrylmaInterface.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Trylma/TrylmaPawns.java" />
         <option value="$PROJECT_DIR$/src/main/test/Trylma.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Trylma/gui/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/Trylma/TrylmaBuilder.java" />
-
         <option value="$PROJECT_DIR$/src/main/java/ServerClient/PlayersColors.java" />
         <option value="$PROJECT_DIR$/src/main/java/ServerClient/MoveType.java" />
         <option value="$PROJECT_DIR$/src/main/java/ServerClient/MoveResult.java" />
         <option value="$PROJECT_DIR$/src/main/java/ServerClient/WorkingThread.java" />
-        
         <option value="$PROJECT_DIR$/src/main/java/ServerClient/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/ServerClient/MainWindow.java" />
-
+        <option value="$PROJECT_DIR$/src/main/java/Trylma/players/PlayerA.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Trylma/players/PlayerD.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Trylma/TrylmaPawns.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Trylma/players/PlayerB.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Trylma/players/PlayerC.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Trylma/players/PlayerF.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Trylma/players/PlayerE.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Trylma/gui/Main.java" />
       </list>
     </option>
   </component>
@@ -261,9 +170,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="442" />
-    <option name="y" value="1" />
-    <option name="width" value="1487" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="977" />
     <option name="height" value="1038" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -273,9 +182,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-
       <pane id="Scope" />
-
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -286,13 +193,11 @@
             <path>
               <item name="Macyna-Wpierdol" type="b2602c69:ProjectViewProjectNode" />
               <item name="Macyna-Wpierdol" type="462c0819:PsiDirectoryNode" />
-
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Macyna-Wpierdol" type="b2602c69:ProjectViewProjectNode" />
               <item name="Macyna-Wpierdol" type="462c0819:PsiDirectoryNode" />
-
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -302,6 +207,14 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Macyna-Wpierdol" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Macyna-Wpierdol" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="ServerClient" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Macyna-Wpierdol" type="b2602c69:ProjectViewProjectNode" />
@@ -336,30 +249,19 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Macyna-Wpierdol" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Macyna-Wpierdol" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-
-      <pane id="Scope" />
-
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="ToolWindowMessages.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544043184167" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544050775008" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -382,15 +284,26 @@
       </list>
     </option>
   </component>
-
-  <component name="RunManager" selected="Application.MainWindow">
+  <component name="RunManager" selected="Application.Main (1)">
     <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ServerClient.Client" />
       <module name="Macyna-Wpierdol" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="ServerClient.*" />
-
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Trylma.gui.Main" />
+      <module name="Macyna-Wpierdol" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Trylma.gui.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -399,13 +312,11 @@
       </method>
     </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-
       <option name="MAIN_CLASS_NAME" value="ServerClient.Main" />
       <module name="Macyna-Wpierdol" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="ServerClient.*" />
-
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -413,21 +324,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-
-    <configuration name="Trylma" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MainWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ServerClient.MainWindow" />
       <module name="Macyna-Wpierdol" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Trylma" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Trylma.howMuchObjects" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Macyna-Wpierdol" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="Trylma" />
-      <option name="METHOD_NAME" value="howMuchObjects" />
-      <option name="TEST_OBJECT" value="method" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ServerClient.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -438,33 +343,23 @@
       <option name="MAIN_CLASS_NAME" value="Trylma" />
       <option name="METHOD_NAME" value="sizeOfTrylma" />
       <option name="TEST_OBJECT" value="method" />
-
-    <configuration name="MainWindow" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ServerClient.MainWindow" />
-      <module name="Macyna-Wpierdol" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ServerClient.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.Client" />
       <item itemvalue="Application.MainWindow" />
+      <item itemvalue="JUnit.Trylma.sizeOfTrylma" />
+      <item itemvalue="Application.Main (1)" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main (1)" />
+        <item itemvalue="Application.Main" />
         <item itemvalue="Application.MainWindow" />
         <item itemvalue="Application.Client" />
-        <item itemvalue="Application.Main" />
-
       </list>
     </recent_temporary>
   </component>
@@ -480,7 +375,6 @@
       <updated>1543743577906</updated>
       <workItem from="1543743580514" duration="84000" />
       <workItem from="1543743867211" duration="190000" />
-
       <workItem from="1543855544094" duration="241000" />
       <workItem from="1543864299089" duration="21000" />
       <workItem from="1543864369327" duration="103000" />
@@ -499,7 +393,6 @@
       <workItem from="1544019416059" duration="5523000" />
       <workItem from="1544036160136" duration="7074000" />
       <workItem from="1544043267574" duration="3000" />
-
     </task>
     <task id="LOCAL-00001" summary="Client serwer mi nie działa&#10;dokładniej linia 28">
       <created>1544008285097</created>
@@ -551,46 +444,36 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-
-    <option name="totallyTimeSpent" value="46169000" />
-
+    <option name="totallyTimeSpent" value="51499000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1944146" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.51543623" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Duplicate detector" weight="0.3286119" />
       <window_info anchor="bottom" id="Message" order="0" />
-
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.41183162" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.41183162" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.49932885" weight="0.3286119" />
+      <window_info anchor="bottom" id="Version Control" order="7" sideWeight="0.4986577" weight="0.3286119" />
       <window_info anchor="bottom" id="Analysis" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50067115" side_tool="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5013423" side_tool="true" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="GitHub Pull Requests" order="12" sideWeight="0.49932885" weight="0.3286119" />
-
-      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.49932885" weight="0.32808024" />
+      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.49932885" weight="0.32764506" />
       <window_info anchor="bottom" id="CheckStyle" order="14" />
       <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
-
-      <window_info anchor="bottom" id="Messages" order="13" sideWeight="0.49932885" weight="0.32764506" />
-
+      <window_info anchor="bottom" id="Duplicate detector" order="16" weight="0.3286119" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.24966443" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -655,60 +538,24 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2120">
-          <caret line="409" column="9" lean-forward="true" selection-start-line="409" selection-start-column="9" selection-end-line="409" selection-end-column="9" />
+        <state relative-caret-position="345">
+          <caret line="119" column="32" selection-end-line="773" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="27" column="9" selection-start-line="27" selection-start-column="9" selection-end-line="27" selection-end-column="9" />
+        <state relative-caret-position="340">
+          <caret line="68" selection-start-line="68" selection-end-line="68" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1581#1582#0" expanded="true" />
+            <element signature="e#1617#1618#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/PawnInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/players/PlayerB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/players/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/players/PlayerE.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="11" lean-forward="true" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/players/PlayerF.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/players/PlayerD.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/PawnInterface.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="199">
@@ -716,43 +563,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/resources.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="22" selection-start-column="22" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/resources.java" />
     <entry file="file://$PROJECT_DIR$/filetypes.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/debugger.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-
-    <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/TrylmaBuilder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1157">
-          <caret line="83" column="1" selection-start-line="83" selection-start-column="1" selection-end-line="83" selection-end-column="1" />
-
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/TrylmaInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-
-        <state relative-caret-position="357">
-          <caret line="17" column="20" selection-start-line="17" selection-start-column="20" selection-end-line="17" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/Main.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/MoveResult.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="84">
@@ -770,24 +588,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/test/Trylma.java">
-      <provider selected="true" editor-type-id="text-editor">
-
-        <state relative-caret-position="609">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/TrylmaPawns.java">
-      <provider selected="true" editor-type-id="text-editor">
-
-        <state>
-          <caret column="21" selection-start-column="21" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -805,11 +605,116 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/test/Trylma.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/TrylmaInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/MainWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
+        <state relative-caret-position="357">
           <caret line="72" column="90" selection-start-line="72" selection-start-column="90" selection-end-line="72" selection-end-column="90" />
-
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/players/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/TrylmaPawns.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="31" column="6" selection-start-line="31" selection-start-column="6" selection-end-line="31" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/players/PlayerD.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/players/PlayerB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/players/PlayerA.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/players/PlayerC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="82" selection-start-line="11" selection-start-column="62" selection-end-line="11" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/players/PlayerF.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/players/PlayerE.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="66" selection-start-line="10" selection-start-column="66" selection-end-line="10" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/TrylmaBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1475">
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#761#762#0" expanded="true" />
+            <element signature="e#795#796#0" expanded="true" />
+            <element signature="e#854#855#0" expanded="true" />
+            <element signature="e#890#891#0" expanded="true" />
+            <element signature="e#5438#5439#0" expanded="true" />
+            <element signature="e#5467#5468#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/gui/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="99" column="74" selection-start-line="99" selection-start-column="74" selection-end-line="99" selection-end-column="74" />
+          <folding>
+            <element signature="e#5983#5984#0" expanded="true" />
+            <element signature="e#6011#6012#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
