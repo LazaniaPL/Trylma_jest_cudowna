@@ -52,8 +52,10 @@ public class Main extends Application {
                                 btn[i][j] = new Button("T");
                                 btn[i][j].setPrefSize(65, 65);
                                 gridPane.add(btn[i][j], i, j);
-                                System.out.println("XD");
+                                final int VarX = i;
+                                final int VarY = j;
                                 btn[i][j].setOnMouseClicked((MouseEvent e) -> {
+                                    System.out.println("koordy: "+ VarX +"  "+ VarY);
                                 });
                             }
 
