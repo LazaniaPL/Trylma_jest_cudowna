@@ -18,6 +18,6 @@ public interface TrylmaInterface {
 
     void whatIsObject();
 
-    void removeKebabTrylma(int[][] trylma);
+    void removeTrylma(int[][] trylma);
 
 }

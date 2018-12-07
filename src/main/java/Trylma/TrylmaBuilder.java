@@ -18,14 +18,10 @@ public class TrylmaBuilder implements TrylmaInterface {
 
     public int scale;
     public int[][] trylma;
-    /**
-     * Używam tego do testów
-     */
+
     public int numberOfObjects = 0;
 
     public int[][] createTrylma(int scale) {
-
-        //return new int[4 * scale + 1][6 * scale + 1];
         return new int[6 * scale + 1][4 * scale + 1];
     }
 
@@ -40,110 +36,48 @@ public class TrylmaBuilder implements TrylmaInterface {
     }
 
 
-    /**
-     * Godzina: 2:27
-     * Czym jest object?
-     * Może naszym sensem istnienia?
-     * Ale tutaj to na pewno figurą XD (co pewnie da rade sie obalić)
-     * Jednak mi bardziej tu chodzi, gdzie te obiekty mogą być na trylmie.
-     * Wielkość naszej trylmy to ( 4 * scala + 1 ) * ( 6 * scala + 1 )
-     * <p>
-     * Godzina: 2:35
-     * Może Dawid Podsiadło miał racje
-     * Może trójkąty i kwadraty mają jakiś głębszy sens.
-     * Bo w tej trylmie to na pewno
-     * Kwadrat składa sie z pasków które mają scala obiektów i scala + 1 obiektów
-     * Jest tych pasków 4 * scala + 1
-     * Gorzej będzie z trójkątami bo trójkąt trójkątowi nie jest równy
-     * <p>
-     * Godzina 2:57
-     * Kwadrat zrobiony, zrobie chyba sobie przerwe
-     */
     @Override
     public void whatIsObject() {
         //kwadrat
         int a = 1;
         for (int i = 0; i <= (4 * scale); i += 2) { //wysokosc
             for (int i1 = 0; i1 < scale + (scale + 1) % 2; i1++) { //nieparzyste
-
-                //trylma[scale + scale % 2 + 2 * i1][scale + i] = 1;
                 trylma[scale + i][scale + scale % 2 + 2 * i1] = 1;
-
                 numberOfObjects = numberOfObjects + 1;
-
             }
-
-
         }
-
         for (int i = 1; i < (4 * scale); i += 2) {
             for (int i2 = 0; i2 < scale + scale % 2; i2++) { // parzyste
-
-                //trylma[scale + (scale + 1) % 2 + 2 * i2][scale + i] = 1;
                 trylma[scale + i][scale + (scale + 1) % 2 + 2 * i2] = 1;
                 numberOfObjects = numberOfObjects + 1;
-
             }
-
-
         }
         //trójkąty boczne równoramienne
-
-
         for (int szerokosc = 0; szerokosc < scale; szerokosc++) {
-
             for (int tempWysokosc = 0; tempWysokosc <= szerokosc; tempWysokosc++) {
-                /*
-                //lewy trójkąt
-                trylma[szerokosc][3 * scale - szerokosc + 2 * tempWysokosc] = 1;
-                //prawy trójkąt
-                trylma[4 * scale - szerokosc][
-                        3 * scale - szerokosc + 2 * tempWysokosc] = 1;
-                 */
-
                 //lewy trójkąt
                 trylma[3 * scale - szerokosc + 2 * tempWysokosc][szerokosc] = 1;
                 //prawy trójkąt
                 trylma[3 * scale - szerokosc + 2 * tempWysokosc][4 * scale - szerokosc] = 1;
                 numberOfObjects = numberOfObjects + 2;
-
             }
         }
-
         //trójkąty boczne prostokątne
         for (int i = 0; i < scale; i += 2) {
             for (int i1 = 0; i1 <= i; i1 += 2) { // parzyste kwadraty ( w tej samej linii są)
-
-                /*
-                trylma[scale + i1][i] = 1;//lewy górny róg
-                trylma[scale + i1][6 * scale - i] = 1; //lewy dolny róg
-                trylma[3 * scale - i1][i] = 1;//prawy górny róg
-                trylma[3 * scale - i1][6 * scale - i] = 1; //prawy dolny róg
-                 */
                 trylma[i][scale + i1] = 1;//lewy górny róg
                 trylma[6 * scale - i][scale + i1] = 1; //lewy dolny róg
                 trylma[i][3 * scale - i1] = 1;//prawy górny róg
                 trylma[6 * scale - i][3 * scale - i1] = 1; //prawy dolny róg
                 numberOfObjects = numberOfObjects + 4;
-
-
             }
-
         }
-
         for (int i = 1; i < scale; i += 2) {
             for (int i2 = 0; i2 < i; i2 += 2) { // nieparzyste kwadraty
-                /*
-                trylma[scale + 1 + i2][i] = 1;//lewy górny róg
-                trylma[scale + 1 + i2][6 * scale - i] = 1; //lewy dolny róg
-                trylma[3 * scale - 1 - i2][i] = 1;//prawy gorny róg
-                trylma[3 * scale - 1- i2][6 * scale - i] = 1; //prawy dolny róg
-                 */
-
                 trylma[i][scale + 1 + i2] = 1;//lewy górny róg
                 trylma[6 * scale - i][scale + 1 + i2] = 1; //lewy dolny róg
                 trylma[i][3 * scale - 1 - i2] = 1;//prawy gorny róg
-                trylma[6 * scale - i][3 * scale - 1- i2] = 1; //prawy dolny róg
+                trylma[6 * scale - i][3 * scale - 1 - i2] = 1; //prawy dolny róg
                 numberOfObjects = numberOfObjects + 4;
 
             }
@@ -154,7 +88,9 @@ public class TrylmaBuilder implements TrylmaInterface {
     }
 
     @Override
-    public void removeKebabTrylma(int[][] trylma) {
+    public void removeTrylma(int[][] trylma) {
         trylma = null;
     }
 }
+
+

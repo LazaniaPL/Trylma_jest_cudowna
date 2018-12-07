@@ -6,58 +6,86 @@ import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
+import javafx.scene.text.*;
 import javafx.stage.Stage;
 import sun.font.FontFamily;
 
+//  TODO: PRAKTYCZNIE GOTOWE
 
 public class MainWindow extends Application {
 
+    private Server server;
+
+
+    private void setStop(){
+        server.stop();
+    }
+
+    private void  setRunning(int playerNumbers, int scale){
+        server = new Server(8188, playerNumbers, scale);
+        new Thread(server).start();
+    }
 
 
     private Parent createContent(){
         Pane root = new Pane();
         root.setPrefSize(520,390);
 
+        String text =   "WELCOME IN OUR PROJECT -- CHINESE CHECKERS.\n\n YOU CAN PLAY EITHER WITH YOUR FRIENDS OR BOT,\n" +
+                        "WHICH YOU CAN ADD LATER...\n\n TO START THE GAME FIRST SELECT BOARD SIZE AND NUMBER\n OF PLAYERS " +
+                        "THEN CLICK \"ACCEPT\", IN CASE OF WRONG DECISION\n MAKE SURE TU RESET SERVER " +
+                        "BY CLICKING \"ABORT\" BUTTON ";
 
-        TextField textFieldScale = new TextField();
-        textFieldScale.setPromptText("HOW BIG IS SCALE?");
-        textFieldScale.setTranslateX(290);
-        textFieldScale.setTranslateY(260);
 
-        TextField textFieldPlayers = new TextField();
-        textFieldPlayers.setPromptText("HOW MANY PLAYERS?");
-        textFieldPlayers.setTranslateX(40);
-        textFieldPlayers.setTranslateY(260);
-        try {
-            int playersNumber = Integer.parseInt(textFieldScale.getText());
-        }catch (NumberFormatException e){ }
-        Server server = new Server(8088, 6);
+        Text initialText = new Text(10, 30, text);
+        initialText.setTextAlignment(TextAlignment.JUSTIFY);
+
+        Label labelScale = new Label("SELECT TABLE SIZE:");
+        labelScale.setTranslateX(290);
+        labelScale.setTranslateY(230);
+
+        Spinner<Integer> numberScale  = new Spinner<>(3,10,4);
+        numberScale.setTranslateX(290);
+        numberScale.setTranslateY(260);
+
+        Label labelPlayers = new Label("NUMBER OF PLAYERS:");
+        labelPlayers.setTranslateX(40);
+        labelPlayers.setTranslateY(230);
+
+        Spinner<Integer> numberPlayers  = new Spinner<>(1,6,6);
+        numberPlayers.setTranslateX(40);
+        numberPlayers.setTranslateY(260);
+
 
         Button createServer = new Button("ACCEPT");
         createServer.setTranslateX(125);
         createServer.setTranslateY(320);
         createServer.setOnAction(event -> {
-            new Thread(server).start();
+            setRunning(numberPlayers.getValue(),numberScale.getValue());
         });
 
+        Button exit = new Button("EXIT");
+        exit.setTranslateX(330);
+        exit.setTranslateY(320);
+        exit.setOnAction(event -> {
+            if(server != null) {
+                setStop();
+                System.exit(0);
+            }
+        });
 
-        root.getChildren().addAll(textFieldScale, textFieldPlayers, createServer);
+        root.getChildren().addAll(labelScale, labelPlayers, initialText);
+        root.getChildren().addAll(numberScale, numberPlayers, createServer, exit);
 
         return root;
 
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {
         primaryStage.setTitle("Checkers");
         primaryStage.setScene(new Scene(createContent()));
         primaryStage.show();

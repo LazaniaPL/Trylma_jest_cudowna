@@ -15,10 +15,12 @@ public class Server implements Runnable {
     protected Thread runningThread = null;
     protected ExecutorService threadPool;
     protected int playerNumber;
+    protected int scale;
 
-    Server(int port, int playerNumber) {
+    Server(int port, int playerNumber, int scale) {
         this.serverPort = port;
         this.playerNumber = playerNumber;
+        this.scale = scale;
         this.threadPool = Executors.newFixedThreadPool(playerNumber);
     }
 
@@ -39,7 +41,7 @@ public class Server implements Runnable {
              }throw new RuntimeException("ERROR ACCEPTING CLIENT", e);
          }
          //TODO: USTAWIĆ ITERATOR NA messegeText ZEBY ROZRÓZNIĆ MIĘDZY THREADAMI
-         this.threadPool.execute(new WorkingThread(clientSocket, "Server"));
+         this.threadPool.execute(new WorkingThread(clientSocket,playerNumber, scale));
         }
         this.threadPool.shutdown();
         System.out.println("SERVER STOPPED");
