@@ -51,7 +51,7 @@ public class Main extends Application {
                 TrylmaBuilder trylmaBuilder = new TrylmaBuilder(scale);
                 TrylmaPawns trylmaPawns = new TrylmaPawns(players,trylmaBuilder.trylma,scale);
                 Button[][] btn1 = new Button[6 * scale + 1][4 * scale + 1];
-                TrylmaGridPane.makePiece(gridPane, scale, trylmaBuilder, btn1);
+                //TrylmaGridPane.makePiece(gridPane, scale, trylmaBuilder, btn1);
 
             } catch (Exception ignored) {
             }

@@ -22,9 +22,13 @@ public class WorkingThread implements Runnable {
     public void run() {
         try{
             PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+            BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             out.println(scale+""+players);
             while (true){
-
+                if(in.readLine() != null) {
+                    String move = in.readLine();
+                    System.out.println(move);
+                }
             }
         } catch (IOException e) {
             e.printStackTrace();
