@@ -67,7 +67,7 @@ public class Pawn extends Circle {
     }
 
     public void move(int x, int y){
-        OldX = x*(1.5*TILE_SIZE);
+        OldX = x*(2*TILE_SIZE);
         OldY = y*(2*TILE_SIZE);
         relocate(OldX, OldY);
     }
