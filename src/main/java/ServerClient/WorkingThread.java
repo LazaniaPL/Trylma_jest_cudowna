@@ -33,11 +33,12 @@ public class WorkingThread implements Runnable {
             out.println(data);
             writers.add(out);
 
-            while(true){
-                for(PrintWriter writer : writers) {
-                    writer.println("aaaaa");
+            while(true)
+                if((move = in.readLine()) != null) {
+                    System.out.println(in);
+
                 }
-            }
+
 
         } catch (IOException e) {
             e.printStackTrace();

@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.Socket;
 
 
@@ -187,6 +188,12 @@ public class Client extends Application  {
                     pawn.abortMove();
                     break;
                 case NORMAL:
+                    try {
+                        PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
+                        printWriter.println(x0+"  "+y0+" new: "+newX+"   "+newY);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     pawn.move(newX / 2, newY / 2);
                     board[x0 / 2][y0 / 2].setPawn(null);
                     board[newX / 2][newY / 2].setPawn(pawn);
@@ -210,7 +217,7 @@ public class Client extends Application  {
         int scale = c.getScale(number);
         int players = c.getPlayers(number);
 
-        primaryStage.setScene(new Scene(makeMeBoard(6,6)));
+        primaryStage.setScene(new Scene(makeMeBoard(scale,players)));
         primaryStage.show();
 
     }
