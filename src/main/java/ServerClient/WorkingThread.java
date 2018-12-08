@@ -3,14 +3,20 @@ package ServerClient;
 import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.HashSet;
+
+import static ServerClient.Server.writers;
 
 public class WorkingThread implements Runnable {
 
-    //TODO: LOGIKA RUCHÓW
+    //TODO: lista graczy do wyboru HashSet
+    //TODO: lista printwriterów
 
     private Socket clientSocket;
     private int scale;
     private int players;
+
+    private String move;
 
     WorkingThread(Socket clientSocket, int players, int scale){
         this.clientSocket = clientSocket;
@@ -23,13 +29,16 @@ public class WorkingThread implements Runnable {
         try{
             PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
             BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-            out.println(scale+""+players);
-            while (true){
-                if(in.readLine() != null) {
-                    String move = in.readLine();
-                    System.out.println(move);
+            String data = scale+""+players;
+            out.println(data);
+            writers.add(out);
+
+            while(true){
+                for(PrintWriter writer : writers) {
+                    writer.println("aaaaa");
                 }
             }
+
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -23,7 +23,7 @@ public class Tile extends Circle {
 
     public Tile(String color, int x, int y){
         setRadius(TILE_SIZE);
-        relocate(x*(1.5*TILE_SIZE), y*(2*TILE_SIZE));
+        relocate(x*(2*TILE_SIZE), y*(2*TILE_SIZE));
         setStrokeWidth(0.2*TILE_SIZE);
 
         switch(color){
