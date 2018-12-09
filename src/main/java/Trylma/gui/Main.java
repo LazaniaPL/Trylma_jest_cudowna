@@ -9,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -30,6 +31,7 @@ public class Main extends Application {
         root.getChildren().add(vBox);
         Button btn = new Button();
         btn.setText("Uruchom program");
+
         btn.setOnAction(event -> {
             GridPane gridPane = new GridPane();
             gridPane.setVgap(10);
@@ -45,6 +47,7 @@ public class Main extends Application {
                 //TrylmaGridPane.makePiece(gridPane, scale, trylmaBuilder, btn1);
 
             } catch (Exception ignored) {
+
             }
 
             Scene scene = new Scene(gridPane, 1230, 940);
