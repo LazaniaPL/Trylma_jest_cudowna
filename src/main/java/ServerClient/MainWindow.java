@@ -6,79 +6,86 @@ import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontPosture;
-import javafx.scene.text.FontWeight;
-import javafx.scene.text.Text;
+import javafx.scene.text.*;
 import javafx.stage.Stage;
 import sun.font.FontFamily;
 
+//  TODO: PRAKTYCZNIE GOTOWE
 
 public class MainWindow extends Application {
 
+    private Server server;
+
+
+    private void setStop(){
+        server.stop();
+    }
+
+    private void  setRunning(int playerNumbers, int scale){
+        server = new Server(8188, playerNumbers, scale);
+        new Thread(server).start();
+    }
 
 
     private Parent createContent(){
         Pane root = new Pane();
         root.setPrefSize(520,390);
-        Text text = new Text();
-        text.setFont(Font.font("Comic Sans MS", FontWeight.BOLD, FontPosture.REGULAR, 20));
-        text.setText("CHOOSE GAME TYPE:\n (YOU CAN CHOOSE BOTS LATER)");
-        text.setTranslateX(100);
-        text.setTranslateY(50);
 
-        //TODO: NAPRAWIĆ TO DLA THREADPOOLA
-
-        Server server = new Server(8088, 6);
-
-        Button twoPlayers = new Button("TWO PLAYERS");
-        twoPlayers.setTranslateX(200);
-        twoPlayers.setTranslateY(120);
-        twoPlayers.setOnAction(event -> new Thread(server).start());
-
-        Button threePlayers = new Button("THREE PLAYERS");
-        threePlayers.setTranslateX(200);
-        threePlayers.setTranslateY(180);
-        threePlayers.setOnAction(event -> new Thread(server).start());
+        String text =   "WELCOME IN OUR PROJECT -- CHINESE CHECKERS.\n\n YOU CAN PLAY EITHER WITH YOUR FRIENDS OR BOT,\n" +
+                        "WHICH YOU CAN ADD LATER...\n\n TO START THE GAME FIRST SELECT BOARD SIZE AND NUMBER\n OF PLAYERS " +
+                        "THEN CLICK \"ACCEPT\", IN CASE OF WRONG DECISION\n MAKE SURE TU RESET SERVER " +
+                        "BY CLICKING \"ABORT\" BUTTON ";
 
 
-        Button fourPlayers = new Button("FOUR PLAYERS");
-        fourPlayers.setTranslateX(200);
-        fourPlayers.setTranslateY(240);
-        fourPlayers.setOnAction(event -> new Thread(server).start());
+        Text initialText = new Text(10, 30, text);
+        initialText.setTextAlignment(TextAlignment.JUSTIFY);
 
-        Button sixPlayers = new Button("THREE PLAYERS");
-        sixPlayers.setTranslateX(200);
-        sixPlayers.setTranslateY(300);
-        sixPlayers.setOnAction(event -> new Thread(server).start());
+        Label labelScale = new Label("SELECT TABLE SIZE:");
+        labelScale.setTranslateX(290);
+        labelScale.setTranslateY(230);
+
+        Spinner<Integer> numberScale  = new Spinner<>(3,10,4);
+        numberScale.setTranslateX(290);
+        numberScale.setTranslateY(260);
+
+        Label labelPlayers = new Label("NUMBER OF PLAYERS:");
+        labelPlayers.setTranslateX(40);
+        labelPlayers.setTranslateY(230);
+
+        Spinner<Integer> numberPlayers  = new Spinner<>(1,6,6);
+        numberPlayers.setTranslateX(40);
+        numberPlayers.setTranslateY(260);
 
 
-        Button abort = new Button("CLEAR");
-        abort.setTranslateX(400);
-        abort.setTranslateY(270);
-        abort.setOnAction(event -> server.stop());
-
-        Button exit = new Button("EXIT");
-        exit.setTranslateX(400);
-        exit.setTranslateY(320);
-        exit.setOnAction(event -> {
-            server.stop();
-            System.exit(0);
+        Button createServer = new Button("ACCEPT");
+        createServer.setTranslateX(125);
+        createServer.setTranslateY(320);
+        createServer.setOnAction(event -> {
+            setRunning(numberPlayers.getValue(),numberScale.getValue());
         });
 
-        root.getChildren().addAll(twoPlayers, threePlayers, fourPlayers, sixPlayers,abort, exit);
-        root.getChildren().add(text);
+        Button exit = new Button("EXIT");
+        exit.setTranslateX(330);
+        exit.setTranslateY(320);
+        exit.setOnAction(event -> {
+            if(server != null) {
+                setStop();
+                System.exit(0);
+            }
+        });
+
+        root.getChildren().addAll(labelScale, labelPlayers, initialText);
+        root.getChildren().addAll(numberScale, numberPlayers, createServer, exit);
 
         return root;
 
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {
         primaryStage.setTitle("Checkers");
         primaryStage.setScene(new Scene(createContent()));
         primaryStage.show();
