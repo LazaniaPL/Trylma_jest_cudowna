@@ -9,8 +9,7 @@ public class PlayerD implements Player {
             for (int tempWysokosc = 0; tempWysokosc <= szerokosc; tempWysokosc++) {
 
                 //prawy trójkąt
-                trylma[4 * scale - szerokosc][
-                        3 * scale - szerokosc + 2 * tempWysokosc] = 5;
+                trylma[3 * scale - szerokosc + 2 * tempWysokosc][4 * scale - szerokosc] = 5;
 
 
             }
