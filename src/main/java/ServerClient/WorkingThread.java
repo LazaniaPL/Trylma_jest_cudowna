@@ -2,33 +2,43 @@ package ServerClient;
 
 import java.io.*;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.HashSet;
+
+import static ServerClient.Server.writers;
 
 public class WorkingThread implements Runnable {
 
-    //TODO: LOGIKA RUCHÓW
+    //TODO: lista graczy do wyboru HashSet
+    //TODO: lista printwriterów
 
     private Socket clientSocket;
-    private String messageText;
-    private long time = System.currentTimeMillis();
+    private int scale;
+    private int players;
 
-    WorkingThread(Socket clientSocket, String messageText){
+    private String move;
+
+    WorkingThread(Socket clientSocket, int players, int scale){
         this.clientSocket = clientSocket;
-        this.messageText = messageText;
+        this.scale = scale;
+        this.players = players;
     }
 
     @Override
     public void run() {
         try{
-            BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
             PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
-            out.println("Server is working " + time + "  enter text: \n");
-            while (true){
-                messageText = in.readLine();
-                System.out.println(messageText);
-                if( messageText.equals("not")){
+            BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            String data = scale+""+players;
+            out.println(data);
+            writers.add(out);
 
+            while(true){
+                for(PrintWriter writer : writers) {
+                    writer.println("aaaaa");
                 }
             }
+
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -1,24 +1,36 @@
 package ServerClient;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.HashSet;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 
 public class Server implements Runnable {
 
+    static HashSet<PrintWriter> writers = new HashSet<PrintWriter>();
+
     protected int serverPort;
+
     protected ServerSocket serverSocket = null;
-    protected volatile boolean  isClosed = false;
+
+    protected  boolean  isClosed = false;
+
     protected Thread runningThread = null;
+
     protected ExecutorService threadPool;
+
     protected int playerNumber;
 
-    Server(int port, int playerNumber) {
+    protected int scale;
+
+    Server(int port, int playerNumber, int scale) {
         this.serverPort = port;
         this.playerNumber = playerNumber;
+        this.scale = scale;
         this.threadPool = Executors.newFixedThreadPool(playerNumber);
     }
 
@@ -32,14 +44,16 @@ public class Server implements Runnable {
          Socket clientSocket = null;
          try{
              clientSocket = this.serverSocket.accept();
+                Thread.sleep(50);
          } catch (IOException e) {
              if(isClosed()){
                  System.out.println("SERVER STOPPED");
                  return;
              }throw new RuntimeException("ERROR ACCEPTING CLIENT", e);
+         } catch (InterruptedException e) {
+             e.printStackTrace();
          }
-         //TODO: USTAWIĆ ITERATOR NA messegeText ZEBY ROZRÓZNIĆ MIĘDZY THREADAMI
-         this.threadPool.execute(new WorkingThread(clientSocket, "Server"));
+         this.threadPool.execute(new WorkingThread(clientSocket,playerNumber, scale));
         }
         this.threadPool.shutdown();
         System.out.println("SERVER STOPPED");
