@@ -29,19 +29,22 @@ public class WorkingThread implements Runnable {
         try{
             PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
             BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-            String data = scale+""+players;
+            String data = scale+""+players+"\n";
             out.println(data);
-            writers.add(out);
-
-            while(true)
-                if((move = in.readLine()) != null) {
-                    System.out.println(in);
-
-                }
 
 
-        } catch (IOException e) {
-            e.printStackTrace();
+
+            while(true) {
+               if ((move = in.readLine()) != null) {
+                   synchronized (this) {
+                       out.println(move);
+                        Thread.sleep(100);
+                   }
+               }
+            }
+        } catch (IOException | InterruptedException e){
+                e.printStackTrace();
+
         }
     }
 }

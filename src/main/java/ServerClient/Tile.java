@@ -25,34 +25,27 @@ public class Tile extends Circle {
         setRadius(TILE_SIZE);
         relocate(x*(2*TILE_SIZE), y*(2*TILE_SIZE));
         setStrokeWidth(0.2*TILE_SIZE);
-
+        setFill(Color.WHITE);
         switch(color){
             case "WHITE":
-                setFill(Color.WHITE);
                 setStroke(Color.BLACK);
                 break;
             case "RED":
-                setFill(Color.WHITE);
                 setStroke(Color.RED);
                 break;
             case "GREEN":
-                setFill(Color.WHITE);
                 setStroke(Color.GREEN);
                 break;
             case "YELLOW":
-                setFill(Color.WHITE);
                 setStroke(Color.DARKKHAKI);
                 break;
             case "PURPLE":
-                setFill(Color.WHITE);
                 setStroke(Color.PURPLE);
                 break;
             case "BLUE":
-                setFill(Color.WHITE);
                 setStroke(Color.BLUE);
                 break;
             case "OLIVE":
-                setFill(Color.WHITE);
                 setStroke(Color.DARKOLIVEGREEN);
                 break;
         }

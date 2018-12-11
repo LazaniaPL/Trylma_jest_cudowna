@@ -4,10 +4,14 @@
     <list default="true" id="d3574478-9a66-42dc-9ea2-b3d65faa34a2" name="Default Changelist" comment="ja to naprawie">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ServerClient/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServerClient/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ServerClient/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServerClient/Tile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ServerClient/WorkingThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServerClient/WorkingThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Trylma/gui/Main.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ServerClient/Client$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServerClient/Client$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ServerClient/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServerClient/Client.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ServerClient/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServerClient/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ServerClient/Tile.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServerClient/Tile.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ServerClient/WorkingThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServerClient/WorkingThread.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Trylma/gui/Main.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -28,82 +32,74 @@
     <session id="1184849102">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="39" />
+          <entry key="project.closed" value="44" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.6" value="11" />
-          <entry key="project.open.time.7" value="19" />
-          <entry key="project.open.time.8" value="6" />
-          <entry key="project.opened" value="40" />
+          <entry key="project.open.time.7" value="21" />
+          <entry key="project.open.time.8" value="8" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="45" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="JAVA/" value="2" />
-          <entry key="JAVA/ServerClient" value="2" />
+          <entry key="JAVA/ServerClient" value="3" />
           <entry key="JAVA/Trylma" value="1" />
-          <entry key="java" value="75" />
+          <entry key="java" value="81" />
           <entry key="players" value="1" />
           <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="75" />
-          <entry key="UML" value="6" />
+          <entry key="JAVA" value="81" />
+          <entry key="UML" value="7" />
           <entry key="XML" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="11626" />
+          <entry key="java" value="12132" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="11626" />
+          <entry key="JAVA" value="12132" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/Client.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="192" column="80" selection-start-line="192" selection-start-column="80" selection-end-line="192" selection-end-column="80" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/Server.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/MainWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="93" selection-start-line="93" selection-end-line="93" />
+            <state relative-caret-position="44">
+              <caret line="70" column="26" selection-start-line="70" selection-start-column="26" selection-end-line="70" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/WorkingThread.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="359">
+              <caret line="31" column="47" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/WorkingThread.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="43">
-              <caret line="29" column="84" lean-forward="true" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="84" />
+            <state relative-caret-position="441">
+              <caret line="40" column="52" lean-forward="true" selection-start-line="40" selection-start-column="52" selection-end-line="40" selection-end-column="52" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -155,10 +151,10 @@
         <option value="$PROJECT_DIR$/src/main/java/ServerClient/TrylmaGridPane.java" />
         <option value="$PROJECT_DIR$/src/main/java/ServerClient/PawnColors.java" />
         <option value="$PROJECT_DIR$/src/main/java/ServerClient/MoveResult.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ServerClient/Tile.java" />
         <option value="$PROJECT_DIR$/src/main/java/ServerClient/Pawn.java" />
         <option value="$PROJECT_DIR$/src/main/java/ServerClient/Server.java" />
         <option value="$PROJECT_DIR$/src/main/java/ServerClient/Server.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ServerClient/Tile.java" />
         <option value="$PROJECT_DIR$/src/main/java/ServerClient/WorkingThread.java" />
         <option value="$PROJECT_DIR$/src/main/java/ServerClient/Client.java" />
       </list>
@@ -238,15 +234,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Trylma" type="462c0819:PsiDirectoryNode" />
-              <item name="gui" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Macyna-Wpierdol" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Macyna-Wpierdol" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Trylma" type="462c0819:PsiDirectoryNode" />
               <item name="players" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -260,7 +247,7 @@
     <property name="ToolWindowMessages.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544378642070" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544555183742" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -285,7 +272,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Client">
+  <component name="RunManager" selected="Application.MainWindow">
     <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ServerClient.Client" />
       <module name="Macyna-Wpierdol" />
@@ -410,7 +397,12 @@
       <workItem from="1544271993768" duration="3835000" />
       <workItem from="1544278475589" duration="8526000" />
       <workItem from="1544289460221" duration="5182000" />
-      <workItem from="1544378317726" duration="700000" />
+      <workItem from="1544378317726" duration="2307000" />
+      <workItem from="1544380729390" duration="47000" />
+      <workItem from="1544429992457" duration="1135000" />
+      <workItem from="1544535638942" duration="3689000" />
+      <workItem from="1544543780022" duration="5476000" />
+      <workItem from="1544552253344" duration="2928000" />
     </task>
     <task id="LOCAL-00001" summary="Client serwer mi nie działa&#10;dokładniej linia 28">
       <created>1544008285097</created>
@@ -462,12 +454,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="124035000" />
+    <option name="totallyTimeSpent" value="138917000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.33942" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3651987" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -476,8 +469,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32992035" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.407281" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3993174" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.407281" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39590445" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -540,6 +533,18 @@
     <MESSAGE value="Client serwer mi nie działa&#10;dokładniej linia 28" />
     <MESSAGE value="Wszystko działa ale jeszcze nie obrócone" />
     <option name="LAST_COMMIT_MESSAGE" value="Wszystko działa ale jeszcze nie obrócone" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/ServerClient/WorkingThread.java</url>
+          <line>32</line>
+          <properties />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
@@ -705,10 +710,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/TrylmaBuilder.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/MoveResult.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="39" column="28" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
+        <state relative-caret-position="252">
+          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/gui/Main.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/TrylmaPawns.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -718,30 +731,132 @@
           <ID>JAVA</ID>
           <OriginalElement>ServerClient</OriginalElement>
           <nodes>
-            <node x="" y="">ServerClient.Client</node>
-            <node x="" y="">ServerClient.Pawn</node>
-            <node x="" y="">ServerClient.WorkingThread</node>
-            <node x="" y="">ServerClient.MainWindow</node>
-            <node x="" y="">ServerClient.PawnColors</node>
-            <node x="" y="">ServerClient.Tile</node>
-            <node x="" y="">ServerClient.MoveType</node>
-            <node x="" y="">ServerClient.Server</node>
-            <node x="" y="">ServerClient.MoveResult</node>
+            <node x="175.29166666666669" y="96.0">ServerClient.Client</node>
+            <node x="112.2762648809524" y="192.0">ServerClient.Pawn</node>
+            <node x="0.0" y="359.0">ServerClient.WorkingThread</node>
+            <node x="0.0" y="0.0">ServerClient.PawnColors</node>
+            <node x="7.0" y="531.0">ServerClient.MainWindow</node>
+            <node x="158.00000000000003" y="0.0">ServerClient.Tile</node>
+            <node x="263.0" y="0.0">ServerClient.MoveType</node>
+            <node x="30.5" y="445.0">ServerClient.Server</node>
+            <node x="185.49166666666665" y="278.0">ServerClient.MoveResult</node>
           </nodes>
           <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="1.0" x="166.0" y="149.0" />
-          <SelectedNodes />
+          <edges>
+            <edge source="ServerClient.MoveResult" target="ServerClient.Pawn">
+              <point x="-34.5" y="-18.0" />
+              <point x="219.99166666666665" y="248.0" />
+              <point x="184.2762648809524" y="248.0" />
+              <point x="24.0" y="18.0" />
+            </edge>
+            <edge source="ServerClient.Client" target="ServerClient.Pawn">
+              <point x="0.0" y="18.0" />
+              <point x="224.79166666666669" y="172.0" />
+              <point x="201.4191220238095" y="172.0" />
+              <point x="41.14285714285711" y="-18.0" />
+            </edge>
+            <edge source="ServerClient.Client" target="ServerClient.PawnColors">
+              <point x="-41.25" y="-18.0" />
+              <point x="183.54166666666669" y="56.0" />
+              <point x="115.00000000000003" y="56.0" />
+              <point x="46.00000000000003" y="18.0" />
+            </edge>
+            <edge source="ServerClient.Server" target="ServerClient.WorkingThread">
+              <point x="-25.5" y="-18.0" />
+              <point x="56.0" y="420.0" />
+              <point x="40.75" y="420.0" />
+              <point x="-40.75" y="18.0" />
+            </edge>
+            <edge source="ServerClient.Pawn" target="ServerClient.Client">
+              <point x="13.714285714285722" y="-18.0" />
+              <point x="173.99055059523812" y="152.0" />
+              <point x="185.1916666666667" y="152.0" />
+              <point x="-39.599999999999994" y="18.0" />
+            </edge>
+            <edge source="ServerClient.Pawn" target="ServerClient.PawnColors">
+              <point x="-41.14285714285714" y="-18.0" />
+              <point x="119.13340773809526" y="172.0" />
+              <point x="54.181026785714295" y="172.0" />
+              <point x="54.181026785714295" y="76.0" />
+              <point x="23.0" y="76.0" />
+              <point x="-46.0" y="18.0" />
+            </edge>
+            <edge source="ServerClient.Tile" target="ServerClient.Pawn">
+              <point x="-35.41666666666666" y="18.0" />
+              <point x="165.08333333333337" y="66.0" />
+              <point x="139.84769345238095" y="66.0" />
+              <point x="139.84769345238095" y="172.0" />
+              <point x="146.56197916666667" y="172.0" />
+              <point x="-13.714285714285722" y="-18.0" />
+            </edge>
+            <edge source="ServerClient.MoveResult" target="ServerClient.MoveType">
+              <point x="34.49999999999999" y="-18.0" />
+              <point x="288.9916666666667" y="248.0" />
+              <point x="344.1666666666667" y="248.0" />
+              <point x="344.1666666666667" y="76.0" />
+              <point x="328.0" y="76.0" />
+              <point x="0.0" y="18.0" />
+            </edge>
+            <edge source="ServerClient.Client" target="ServerClient.Tile">
+              <point x="-8.25" y="-18.0" />
+              <point x="216.54166666666669" y="76.0" />
+              <point x="207.58333333333334" y="76.0" />
+              <point x="7.083333333333314" y="18.0" />
+            </edge>
+            <edge source="ServerClient.Tile" target="ServerClient.Client">
+              <point x="35.41666666666663" y="18.0" />
+              <point x="235.91666666666666" y="66.0" />
+              <point x="249.54166666666669" y="66.0" />
+              <point x="24.75" y="-18.0" />
+            </edge>
+            <edge source="ServerClient.MainWindow" target="ServerClient.Server">
+              <point x="-37.25" y="-18.0" />
+              <point x="44.25" y="506.0" />
+              <point x="56.0" y="506.0" />
+              <point x="-25.5" y="18.0" />
+            </edge>
+            <edge source="ServerClient.Client" target="ServerClient.MoveResult">
+              <point x="39.599999999999966" y="18.0" />
+              <point x="264.39166666666665" y="172.0" />
+              <point x="259.9916666666667" y="172.0" />
+              <point x="259.9916666666667" y="258.0" />
+              <point x="265.9916666666667" y="258.0" />
+              <point x="11.5" y="-18.0" />
+            </edge>
+            <edge source="ServerClient.Client" target="ServerClient.MoveType">
+              <point x="41.25" y="-18.0" />
+              <point x="266.0416666666667" y="76.0" />
+              <point x="284.6666666666667" y="76.0" />
+              <point x="-43.333333333333336" y="18.0" />
+            </edge>
+            <edge source="ServerClient.WorkingThread" target="ServerClient.Server">
+              <point x="40.75" y="18.0" />
+              <point x="122.25" y="420.0" />
+              <point x="107.0" y="420.0" />
+              <point x="25.5" y="-18.0" />
+            </edge>
+          </edges>
+          <settings layout="Hierarchic Group" zoom="1.0" x="-200.0" y="12.0" />
+          <SelectedNodes>
+            <node>ServerClient.Client</node>
+          </SelectedNodes>
           <Categories />
           <SCOPE>All</SCOPE>
           <VISIBILITY>private</VISIBILITY>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/MoveResult.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+        <state relative-caret-position="421">
+          <caret line="56" column="9" selection-start-line="56" selection-start-column="9" selection-end-line="56" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/TrylmaBuilder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="39" column="28" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
         </state>
       </provider>
     </entry>
@@ -752,9 +867,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/Tile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="861">
+          <caret line="47" column="25" selection-start-line="47" selection-start-column="25" selection-end-line="47" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/Pawn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1260">
+        <state relative-caret-position="421">
           <caret line="69" column="19" selection-start-line="69" selection-start-column="19" selection-end-line="69" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -762,27 +887,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/Tile.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/gui/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="43" column="19" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/TrylmaPawns.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="210" column="43" lean-forward="true" selection-start-line="210" selection-start-column="43" selection-end-line="210" selection-end-column="43" />
+        <state relative-caret-position="441">
+          <caret line="40" column="52" lean-forward="true" selection-start-line="40" selection-start-column="52" selection-end-line="40" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -791,32 +899,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/MainWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="93" selection-start-line="93" selection-end-line="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+        <state relative-caret-position="44">
+          <caret line="70" column="26" selection-start-line="70" selection-start-column="26" selection-end-line="70" selection-end-column="26" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/WorkingThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="43">
-          <caret line="29" column="84" lean-forward="true" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="84" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="192" column="80" selection-start-line="192" selection-start-column="80" selection-end-line="192" selection-end-column="80" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="359">
+          <caret line="31" column="47" selection-start-line="31" selection-start-column="47" selection-end-line="31" selection-end-column="47" />
         </state>
       </provider>
     </entry>

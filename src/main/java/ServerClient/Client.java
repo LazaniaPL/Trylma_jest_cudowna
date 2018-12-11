@@ -18,6 +18,8 @@ import java.net.Socket;
 public class Client extends Application  {
 
 
+    private BufferedReader bufferedReader;
+
     static final int TILE_SIZE = 20;
     private Group tileGroup = new Group();
     private Group pawnGroup = new Group();
@@ -35,9 +37,10 @@ public class Client extends Application  {
 
     private int getConnection() {
         try {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            String line = bufferedReader.readLine();
-            return Integer.parseInt(line);
+            bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            String data = bufferedReader.readLine();
+            return Integer.parseInt(data);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -182,18 +185,22 @@ public class Client extends Application  {
             int y0 = toBoard(pawn.getOldY());
             System.out.println(x0/2+" OLD "+y0/2);
 
+            try {
+                PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
+                printWriter.println(x0/2+"  "+y0/2+" new: "+newX/2+"   "+newY/2+"\n");
+                bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                String move = bufferedReader.readLine();
+                System.out.println(move);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
             switch (result.getType()){
 
                 case NONE:
                     pawn.abortMove();
                     break;
                 case NORMAL:
-                    try {
-                        PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
-                        printWriter.println(x0+"  "+y0+" new: "+newX+"   "+newY);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
                     pawn.move(newX / 2, newY / 2);
                     board[x0 / 2][y0 / 2].setPawn(null);
                     board[newX / 2][newY / 2].setPawn(pawn);
@@ -216,7 +223,6 @@ public class Client extends Application  {
         int number =  c.getConnection();
         int scale = c.getScale(number);
         int players = c.getPlayers(number);
-
         primaryStage.setScene(new Scene(makeMeBoard(scale,players)));
         primaryStage.show();
 
