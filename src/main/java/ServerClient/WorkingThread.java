@@ -3,10 +3,11 @@ package ServerClient;
 import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 
+import static ServerClient.Server.colours;
 import static ServerClient.Server.writers;
-
 
 public class WorkingThread implements Runnable {
 
@@ -14,7 +15,6 @@ public class WorkingThread implements Runnable {
     private int scale;
     private int players;
 
-    protected ArrayList<String> colours = new ArrayList<String>();
 
 
     private String move;
@@ -31,7 +31,8 @@ public class WorkingThread implements Runnable {
         try{
             PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
             BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-            String data = scale+""+players;
+            String data = scale+""+players+" "+colours.get(0);
+            colours.remove(0);
             out.println(data);
             writers.add(out);
 

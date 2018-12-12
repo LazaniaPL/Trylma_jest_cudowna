@@ -57,8 +57,16 @@ public class Client extends Application  {
     }
 
     private int getNumber(String token){
-        return Integer.parseInt(token);
+        StringTokenizer tokenizer = new StringTokenizer(token);
+        return Integer.parseInt(tokenizer.nextToken());
     }
+
+    private String getColour(String token){
+        StringTokenizer tokenizer = new StringTokenizer(token);
+        tokenizer.nextToken();
+        return tokenizer.nextToken();
+    }
+
 
     private int getScale(int number){
         return (number - (number%10))/10;
@@ -68,13 +76,13 @@ public class Client extends Application  {
         return number%10;
     }
 
-    private Pane makeMeBoard(int scale, int players) {
+    private Pane makeMeBoard(int scale, int players, String colour) {
 
         Pane pane = new Pane();
         pane.setPrefSize((6 * scale + 1)*(1.5*TILE_SIZE),(1.5*TILE_SIZE)*(8 * scale + 1));
         TrylmaBuilder trylmaBuilder = new TrylmaBuilder(scale);
         TrylmaPawns trylmaPawns = new TrylmaPawns(players, trylmaBuilder.trylma, scale);
-        makePiece(pane, scale, trylmaBuilder);
+        makePiece(pane, scale, trylmaBuilder, colour);
 
 
         return pane;
@@ -82,7 +90,7 @@ public class Client extends Application  {
 
     private Tile[][] board = new Tile[120][160];
 
-    private void makePiece(Pane pane, int scale, TrylmaBuilder trylma) {
+    private void makePiece(Pane pane, int scale, TrylmaBuilder trylma,String colour) {
 
 
 
@@ -103,7 +111,7 @@ public class Client extends Application  {
                         Tile tileRed = new Tile("RED",i,j);
                         board[i][j] = tileRed;
                         tileGroup.getChildren().add(tileRed);
-                        pawn = makePawn(PawnColors.RED,i,j);
+                        pawn = makePawn(PawnColors.RED,i,j,colour);
                         tileRed.setPawn(pawn);
                         pawnGroup.getChildren().add(pawn);
                         break;
@@ -111,7 +119,7 @@ public class Client extends Application  {
                         Tile tileGreen = new Tile("GREEN",i,j);
                         board[i][j] = tileGreen;
                         tileGroup.getChildren().add(tileGreen);
-                        pawn = makePawn(PawnColors.GREEN,i,j);
+                        pawn = makePawn(PawnColors.GREEN,i,j,colour);
                         tileGreen.setPawn(pawn);
                         pawnGroup.getChildren().add(pawn);
                         break;
@@ -119,7 +127,7 @@ public class Client extends Application  {
                         Tile tileYellow = new Tile("YELLOW",i,j);
                         board[i][j] = tileYellow;
                         tileGroup.getChildren().add(tileYellow);
-                        pawn = makePawn(PawnColors.YELLOW,i,j);
+                        pawn = makePawn(PawnColors.YELLOW,i,j,colour);
                         tileYellow.setPawn(pawn);
                         pawnGroup.getChildren().add(pawn);
                         break;
@@ -127,7 +135,7 @@ public class Client extends Application  {
                         Tile tilePurple = new Tile("PURPLE",i,j);
                         board[i][j] = tilePurple;
                         tileGroup.getChildren().add(tilePurple);
-                        pawn = makePawn(PawnColors.PURPLE,i,j);
+                        pawn = makePawn(PawnColors.PURPLE,i,j,colour);
                         tilePurple.setPawn(pawn);
                         pawnGroup.getChildren().add(pawn);
                         break;
@@ -135,7 +143,7 @@ public class Client extends Application  {
                         Tile tileBlue = new Tile("BLUE",i,j);
                         board[i][j] = tileBlue;
                         tileGroup.getChildren().add(tileBlue);
-                        pawn = makePawn(PawnColors.BLUE,i,j);
+                        pawn = makePawn(PawnColors.BLUE,i,j,colour);
                         tileBlue.setPawn(pawn);
                         pawnGroup.getChildren().add(pawn);
                         break;
@@ -143,7 +151,7 @@ public class Client extends Application  {
                         Tile tileOlive = new Tile("OLIVE",i,j);
                         board[i][j] = tileOlive;
                         tileGroup.getChildren().add(tileOlive);
-                        pawn = makePawn(PawnColors.OLIVE,i,j);
+                        pawn = makePawn(PawnColors.OLIVE,i,j,colour);
                         tileOlive.setPawn(pawn);
                         pawnGroup.getChildren().add(pawn);
                         break;
@@ -156,7 +164,7 @@ public class Client extends Application  {
         return (int)((pixel+TILE_SIZE/2)/TILE_SIZE);
     }
 
-    private MoveResult tryMove(Pawn pawn, int newX, int newY){
+    private MoveResult tryMove(Pawn pawn, int newX, int newY, String colour){
 
         try {
             if (board[newX / 2][newY / 2].hasPawn()) {
@@ -166,14 +174,14 @@ public class Client extends Application  {
             int x0 = toBoard(pawn.getOldX());
             int y0 = toBoard(pawn.getOldY());
 
-            if ((Math.abs(newX - x0) == 4 && newY - y0 == 0) || ((Math.abs(newX - x0)) == 2 && (Math.abs(newX - x0) == 2))) {
+            if (((Math.abs(newX - x0) == 4 && newY - y0 == 0) || ((Math.abs(newX - x0)) == 2 && (Math.abs(newX - x0) == 2))) && pawn.getType().name().equals(colour)) {
                 return new MoveResult(MoveType.NORMAL);
             } else if ((Math.abs(newX - x0) == 8 && newY - y0 == 0) || ((Math.abs(newX - x0)) == 4 && (Math.abs(newX - x0) == 4))) {
 
                 int x1 = x0 + (newX - x0) / 2;
                 int y1 = y0 + (newY - y0) / 2;
 
-                if (board[x1 / 2][y1 / 2].hasPawn()) {
+                if ((board[x1 / 2][y1 / 2].hasPawn()) && (pawn.getType().name().equals(colour))) {
                     return new MoveResult(MoveType.NORMAL);
                 }
             }
@@ -183,14 +191,14 @@ public class Client extends Application  {
         return new MoveResult(MoveType.NONE);
     }
 
-    private  Pawn makePawn(PawnColors type , int x , int y){
+    private  Pawn makePawn(PawnColors type , int x , int y, String colour){
         Pawn pawn = new Pawn(type,x,y);
         pawn.setOnMouseReleased(event -> {
                     int newX = toBoard(pawn.getLayoutX())-1;
                     int newY = toBoard(pawn.getLayoutY())-1;
                     System.out.println(newX/2+ "  "+ newY/2);
 
-            MoveResult result = tryMove(pawn,newX,newY);
+            MoveResult result = tryMove(pawn,newX,newY, colour);
 
             int x0 = toBoard(pawn.getOldX());
             int y0 = toBoard(pawn.getOldY());
@@ -204,7 +212,7 @@ public class Client extends Application  {
                 case NORMAL:
                     try {
                         PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
-                        printWriter.println(x0/2+" "+y0/2+" "+newX/2+" "+newY/2);
+                        printWriter.println(pawn.getType()+" "+x0/2+" "+y0/2+" "+newX/2+" "+newY/2);
                         Thread.sleep(300);
                     } catch (IOException | InterruptedException e) {
                         e.printStackTrace();
@@ -225,6 +233,7 @@ public class Client extends Application  {
                 Thread.sleep(300);
                 String toTokenise = bufferedReader.readLine();
                 StringTokenizer tokenizer = new StringTokenizer(toTokenise);
+                String type = tokenizer.nextToken();
                 int oldX = Integer.parseInt(tokenizer.nextToken());
                 int oldY = Integer.parseInt(tokenizer.nextToken());
                 int newX = Integer.parseInt(tokenizer.nextToken());
@@ -242,12 +251,15 @@ public class Client extends Application  {
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Checkers");
         Client c = new Client();
-        int number = c.getNumber(getConnection());
+        String token = getConnection();
+        String colour = getColour(token);
+        System.out.println(colour);
+        int number = c.getNumber(token);
         int scale = c.getScale(number);
         int players = c.getPlayers(number);
         ClientTask task = new ClientTask();
         new Thread(task).start();
-        primaryStage.setScene(new Scene(makeMeBoard(scale,players)));
+        primaryStage.setScene(new Scene(makeMeBoard(scale,players,colour)));
         primaryStage.show();
 
     }

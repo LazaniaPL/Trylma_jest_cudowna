@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -14,6 +15,8 @@ public class Server implements Runnable {
 
 
     protected static ArrayList<PrintWriter> writers = new ArrayList<>();
+
+    protected static ArrayList<String> colours = new ArrayList<String>(Arrays.asList("PURPLE","", "RED","", "OLIVE","", "YELLOW","", "BLUE","", "GREEN"));
 
     protected int serverPort;
 

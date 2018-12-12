@@ -1,7 +1,7 @@
 package ServerClient;
 
 public enum PawnColors {
-    PURPLE(0,1),RED(0,-1),OLIVE(-1,-1),YELLOW(1,1),GREEN(1,-1),BLUE(-1,1);
+    BLUE(-1, 1), GREEN(1, -1), OLIVE(-1, -1), PURPLE(0, 1), RED(0, -1), YELLOW(1, 1);
 
     protected final int dirX;
     protected final int dirY;
@@ -11,11 +11,12 @@ public enum PawnColors {
         this.dirY = dirY;
     }
 
-    protected int getDirX(){
+    protected int getDirX() {
         return dirX;
     }
 
-    protected int getDirY(){
+    protected int getDirY() {
         return dirY;
     }
+
 }
