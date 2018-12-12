@@ -3,6 +3,7 @@ package ServerClient;
 import Trylma.TrylmaBuilder;
 import Trylma.TrylmaPawns;
 import javafx.application.Application;
+import javafx.concurrent.Task;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -13,10 +14,20 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.StringTokenizer;
 
 
 public class Client extends Application  {
 
+
+    //TODO                JEDEK KOLOR JEDEN KLIENT
+    //TODO: KOLEJKOWANIE, WORKINGTHREAD WYBIERA JEDEN Z KOLORÓW,
+    //TODO: WYSYŁA GO DO OSBNEJ METODY, KTÓRA POTEM JEST WYWOŁYWANA,
+    //TODO: W WYSYŁANIU SPRAWDZAM CZY KOLOR SIĘ ZGADZA,
+
+
+    //TODO              KOLEJKOWANIE
+    //TODO: WORKINGTHREAD OTRZYMUJE TOKEN Z TYPEM, PĘTLA NA INDEXIE
 
     private BufferedReader bufferedReader;
 
@@ -26,7 +37,6 @@ public class Client extends Application  {
 
     private Socket socket;
 
-    //TODO: NETWORKING PART
     public Client() {
         try {
             socket = new Socket("localhost", 8188);
@@ -35,18 +45,20 @@ public class Client extends Application  {
         }
     }
 
-    private int getConnection() {
+    private String getConnection() {
         try {
             bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-            String data = bufferedReader.readLine();
-            return Integer.parseInt(data);
+            return bufferedReader.readLine();
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return 0;
+        return null;
     }
-//TODO: NETWORKING PART
+
+    private int getNumber(String token){
+        return Integer.parseInt(token);
+    }
 
     private int getScale(int number){
         return (number - (number%10))/10;
@@ -74,7 +86,7 @@ public class Client extends Application  {
 
 
 
-        pane.setPrefSize((6 * scale + 1)*(1.5*TILE_SIZE),(1.5*TILE_SIZE)*(8 * scale + 1));
+        pane.setPrefSize((8 * scale + 1)*(1.5*TILE_SIZE),(1.5*TILE_SIZE)*(6 * scale + 1));
         pane.getChildren().addAll(tileGroup, pawnGroup);
 
         for (int i = 0; i < 6 * scale + 1; i++) {
@@ -161,8 +173,8 @@ public class Client extends Application  {
                 int x1 = x0 + (newX - x0) / 2;
                 int y1 = y0 + (newY - y0) / 2;
 
-                if (board[x1 / 2][y1 / 2].hasPawn() && board[x1 / 2][y1 / 2].getPawn().getType() != pawn.getType()) {
-                    return new MoveResult(MoveType.JUMP);
+                if (board[x1 / 2][y1 / 2].hasPawn()) {
+                    return new MoveResult(MoveType.NORMAL);
                 }
             }
         }catch (NullPointerException e) {
@@ -178,22 +190,11 @@ public class Client extends Application  {
                     int newY = toBoard(pawn.getLayoutY())-1;
                     System.out.println(newX/2+ "  "+ newY/2);
 
-
             MoveResult result = tryMove(pawn,newX,newY);
 
             int x0 = toBoard(pawn.getOldX());
             int y0 = toBoard(pawn.getOldY());
             System.out.println(x0/2+" OLD "+y0/2);
-
-            try {
-                PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
-                printWriter.println(x0/2+"  "+y0/2+" new: "+newX/2+"   "+newY/2+"\n");
-                bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-                String move = bufferedReader.readLine();
-                System.out.println(move);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
 
             switch (result.getType()){
 
@@ -201,18 +202,39 @@ public class Client extends Application  {
                     pawn.abortMove();
                     break;
                 case NORMAL:
-                    pawn.move(newX / 2, newY / 2);
-                    board[x0 / 2][y0 / 2].setPawn(null);
-                    board[newX / 2][newY / 2].setPawn(pawn);
+                    try {
+                        PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
+                        printWriter.println(x0/2+" "+y0/2+" "+newX/2+" "+newY/2);
+                        Thread.sleep(300);
+                    } catch (IOException | InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     break;
-                case JUMP:
-                    pawn.move(newX/2,newY/2);
-                    board[x0/2][y0/2].setPawn(null);
-                    board[newX/2][newY/2].setPawn(pawn);
-                    break;
+
             }
         });
         return pawn;
+    }
+
+    class ClientTask extends Task{
+
+        @Override
+        protected Object call() throws Exception {
+            bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            while (true){
+                Thread.sleep(300);
+                String toTokenise = bufferedReader.readLine();
+                StringTokenizer tokenizer = new StringTokenizer(toTokenise);
+                int oldX = Integer.parseInt(tokenizer.nextToken());
+                int oldY = Integer.parseInt(tokenizer.nextToken());
+                int newX = Integer.parseInt(tokenizer.nextToken());
+                int newY = Integer.parseInt(tokenizer.nextToken());
+                Pawn pawn = board[oldX][oldY].getPawn();
+                pawn.move(newX,newY);
+                board[oldX][oldY].setPawn(null);
+                board[newX][newY].setPawn(pawn);
+            }
+        }
     }
 
 
@@ -220,9 +242,11 @@ public class Client extends Application  {
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Checkers");
         Client c = new Client();
-        int number =  c.getConnection();
+        int number = c.getNumber(getConnection());
         int scale = c.getScale(number);
         int players = c.getPlayers(number);
+        ClientTask task = new ClientTask();
+        new Thread(task).start();
         primaryStage.setScene(new Scene(makeMeBoard(scale,players)));
         primaryStage.show();
 

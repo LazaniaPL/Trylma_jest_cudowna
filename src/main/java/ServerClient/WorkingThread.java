@@ -7,16 +7,18 @@ import java.util.HashSet;
 
 import static ServerClient.Server.writers;
 
-public class WorkingThread implements Runnable {
 
-    //TODO: lista graczy do wyboru HashSet
-    //TODO: lista printwriterów
+public class WorkingThread implements Runnable {
 
     private Socket clientSocket;
     private int scale;
     private int players;
 
+    protected ArrayList<String> colours = new ArrayList<String>();
+
+
     private String move;
+
 
     WorkingThread(Socket clientSocket, int players, int scale){
         this.clientSocket = clientSocket;
@@ -29,16 +31,19 @@ public class WorkingThread implements Runnable {
         try{
             PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
             BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-            String data = scale+""+players+"\n";
+            String data = scale+""+players;
             out.println(data);
-
+            writers.add(out);
 
 
             while(true) {
                if ((move = in.readLine()) != null) {
                    synchronized (this) {
-                       out.println(move);
-                        Thread.sleep(100);
+                       System.out.println(move);
+                       for (PrintWriter writer: writers) {
+                           writer.println(move);
+                           Thread.sleep(100);
+                       }
                    }
                }
             }

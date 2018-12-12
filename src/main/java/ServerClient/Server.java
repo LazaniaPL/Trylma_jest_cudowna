@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -11,7 +12,8 @@ import java.util.concurrent.Executors;
 
 public class Server implements Runnable {
 
-    static HashSet<PrintWriter> writers = new HashSet<PrintWriter>();
+
+    protected static ArrayList<PrintWriter> writers = new ArrayList<>();
 
     protected int serverPort;
 
