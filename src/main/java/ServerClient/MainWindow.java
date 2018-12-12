@@ -65,6 +65,7 @@ public class MainWindow extends Application {
         createServer.setTranslateY(320);
         createServer.setOnAction(event -> {
             setRunning(numberPlayers.getValue(),numberScale.getValue());
+            System.out.println("SERVER STARTED");
         });
 
         Button exit = new Button("EXIT");
