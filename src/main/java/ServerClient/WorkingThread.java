@@ -4,20 +4,21 @@ import java.io.*;
 import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashSet;
+import java.util.StringTokenizer;
+
 
 import static ServerClient.Server.colours;
 import static ServerClient.Server.writers;
 
 public class WorkingThread implements Runnable {
 
+    private static ArrayList<String> kolorki = new ArrayList<String>(Arrays.asList("PURPLE", "YELLOW", "GREEN", "RED", "OLIVE", "BLUE"));
+
+    private static int i = 0;
+
     private Socket clientSocket;
     private int scale;
     private int players;
-
-
-
-    private String move;
 
 
     WorkingThread(Socket clientSocket, int players, int scale){
@@ -36,15 +37,25 @@ public class WorkingThread implements Runnable {
             out.println(data);
             writers.add(out);
 
-
             while(true) {
-               if ((move = in.readLine()) != null) {
+                String move;
+                if ((move = in.readLine()) != null) {
                    synchronized (this) {
                        System.out.println(move);
-                       for (PrintWriter writer: writers) {
-                           writer.println(move);
-                           Thread.sleep(100);
+                       StringTokenizer tokenizer = new StringTokenizer(move);
+                       String type = tokenizer.nextToken();
+
+                       if(type.equals(kolorki.get(i))){
+                           for (PrintWriter writer: writers) {
+                               writer.println(move);
+                               Thread.sleep(20);
+                           }
+                           i++;
+                           if(i==6){
+                               i=0;
+                           }
                        }
+
                    }
                }
             }

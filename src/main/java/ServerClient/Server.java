@@ -14,35 +14,27 @@ import java.util.concurrent.Executors;
 public class Server implements Runnable {
 
 
-    protected static ArrayList<PrintWriter> writers = new ArrayList<>();
+    static ArrayList<PrintWriter> writers = new ArrayList<>();
+    static ArrayList<String> colours = new ArrayList<String>(Arrays.asList("PURPLE","", "RED","", "OLIVE","", "YELLOW","", "BLUE","", "GREEN"));
 
-    protected static ArrayList<String> colours = new ArrayList<String>(Arrays.asList("PURPLE","", "RED","", "OLIVE","", "YELLOW","", "BLUE","", "GREEN"));
-
-    protected int serverPort;
-
-    protected ServerSocket serverSocket = null;
-
-    protected  boolean  isClosed = false;
-
-    protected Thread runningThread = null;
-
-    protected ExecutorService threadPool;
-
-    protected int playerNumber;
-
+    private int serverPort;
+    private ServerSocket serverSocket = null;
+    private boolean  isClosed = false;
+    private ExecutorService threadPool;
+    private int playerNumber;
     protected int scale;
 
     Server(int port, int playerNumber, int scale) {
         this.serverPort = port;
         this.playerNumber = playerNumber;
         this.scale = scale;
-        this.threadPool = Executors.newFixedThreadPool(playerNumber);
+        this.threadPool = Executors.newFixedThreadPool(playerNumber*2);
     }
 
     @Override
     public void run() {
         synchronized (this){
-             this.runningThread = Thread.currentThread();
+            Thread runningThread = Thread.currentThread();
         }
         openServerSocket();
         while(! isClosed()){
@@ -64,7 +56,7 @@ public class Server implements Runnable {
         System.out.println("SERVER STOPPED");
     }
 
-    public synchronized void stop(){
+    synchronized void stop(){
         this.isClosed = true;
         try {
             this.serverSocket.close();

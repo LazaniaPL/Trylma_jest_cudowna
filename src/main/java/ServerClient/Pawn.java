@@ -5,29 +5,28 @@ import javafx.scene.shape.Circle;
 
 import static ServerClient.Client.TILE_SIZE;
 
-public class Pawn extends Circle {
+class Pawn extends Circle {
 
-    public double mouseX, mouseY;
-    public double OldX, OldY;
+    private double mouseX, mouseY;
+    private double OldX, OldY;
 
-    public PawnColors type;
+    private PawnColors type;
 
-    public double getOldX() {
+    double getOldX() {
         return OldX;
     }
 
-    public double getOldY() {
+    double getOldY() {
         return OldY;
     }
 
-    public PawnColors getType() {
+    PawnColors getType() {
         return type;
     }
 
-    public Pawn(PawnColors type, int x, int y){
+    Pawn(PawnColors type, int x, int y){
         this.type = type;
         setRadius(TILE_SIZE);
-        //TODO: Możliwe że trzeba wycentrować
         move(x,y);
 
         switch (type){
@@ -66,13 +65,13 @@ public class Pawn extends Circle {
 
     }
 
-    public void move(int x, int y){
+    void move(int x, int y){
         OldX = x*(2*TILE_SIZE);
         OldY = y*(2*TILE_SIZE);
         relocate(OldX, OldY);
     }
 
-    public void  abortMove(){
+    void  abortMove(){
         relocate(OldX,OldY);
     }
 }

@@ -19,19 +19,9 @@ import java.util.StringTokenizer;
 
 public class Client extends Application  {
 
-
-    //TODO                JEDEK KOLOR JEDEN KLIENT
-    //TODO: KOLEJKOWANIE, WORKINGTHREAD WYBIERA JEDEN Z KOLORÓW,
-    //TODO: WYSYŁA GO DO OSBNEJ METODY, KTÓRA POTEM JEST WYWOŁYWANA,
-    //TODO: W WYSYŁANIU SPRAWDZAM CZY KOLOR SIĘ ZGADZA,
-
-
-    //TODO              KOLEJKOWANIE
-    //TODO: WORKINGTHREAD OTRZYMUJE TOKEN Z TYPEM, PĘTLA NA INDEXIE
-
     private BufferedReader bufferedReader;
 
-    static final int TILE_SIZE = 20;
+    static final int TILE_SIZE = 10;
     private Group tileGroup = new Group();
     private Group pawnGroup = new Group();
 
@@ -174,9 +164,9 @@ public class Client extends Application  {
             int x0 = toBoard(pawn.getOldX());
             int y0 = toBoard(pawn.getOldY());
 
-            if (((Math.abs(newX - x0) == 4 && newY - y0 == 0) || ((Math.abs(newX - x0)) == 2 && (Math.abs(newX - x0) == 2))) && pawn.getType().name().equals(colour)) {
+            if (((Math.abs(newX - x0) == 4 && newY - y0 == 0) || ((Math.abs(newX - x0)) == 2 && (Math.abs(newY - y0) == 2))) && pawn.getType().name().equals(colour)) {
                 return new MoveResult(MoveType.NORMAL);
-            } else if ((Math.abs(newX - x0) == 8 && newY - y0 == 0) || ((Math.abs(newX - x0)) == 4 && (Math.abs(newX - x0) == 4))) {
+            } else if ((Math.abs(newX - x0) == 8 && newY - y0 == 0) || ((Math.abs(newX - x0)) == 4 && (Math.abs(newY - y0) == 4))) {
 
                 int x1 = x0 + (newX - x0) / 2;
                 int y1 = y0 + (newY - y0) / 2;
@@ -210,6 +200,7 @@ public class Client extends Application  {
                     pawn.abortMove();
                     break;
                 case NORMAL:
+                    pawn.abortMove();
                     try {
                         PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
                         printWriter.println(pawn.getType()+" "+x0/2+" "+y0/2+" "+newX/2+" "+newY/2);
@@ -249,11 +240,11 @@ public class Client extends Application  {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("Checkers");
         Client c = new Client();
         String token = getConnection();
         String colour = getColour(token);
         System.out.println(colour);
+        primaryStage.setTitle("CHECKERS "+colour);
         int number = c.getNumber(token);
         int scale = c.getScale(number);
         int players = c.getPlayers(number);
