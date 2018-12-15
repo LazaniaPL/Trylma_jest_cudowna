@@ -4,7 +4,7 @@ public class MoveResult {
 
     private MoveType type;
 
-    public MoveType getType(){
+    MoveType getType(){
         return type;
     }
 
@@ -14,11 +14,11 @@ public class MoveResult {
         return pawn;
     }
 
-    public MoveResult(MoveType type){
+    MoveResult(MoveType type){
         this(type, null);
     }
 
-    public MoveResult(MoveType type, Pawn pawn){
+    private MoveResult(MoveType type, Pawn pawn){
         this.type=type;
         this.pawn=pawn;
     }
