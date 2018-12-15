@@ -159,9 +159,10 @@ public class Client extends Application {
     }
 
     boolean multiMove = false;
+    Pawn equal=null;
 
     private MoveResult tryMove(Pawn pawn, int newX, int newY, String colour) {
-
+//todo tak by miało to sens w client serwerze
         try {
             if (czyTura = true) {
                 if (board[newX / 2][newY / 2].hasPawn()) {
@@ -172,13 +173,15 @@ public class Client extends Application {
                 int y0 = toBoard(pawn.getOldY());
 
 
-                if (multiMove == false && (((Math.abs(newX - x0) == 4 && newY - y0 == 0) || ((Math.abs(newX - x0)) == 2 && (Math.abs(newX - x0) == 2))) && pawn.getType().name().equals(colour))) {
+                if (!multiMove && (((Math.abs(newX - x0) == 4 && newY - y0 == 0) || ((Math.abs(newX - x0)) == 2 && (Math.abs(newX - x0) == 2))) && pawn.getType().name().equals(colour))) {
 
                     czyTura = false;
                     return new MoveResult(MoveType.NORMAL);
 
-                } else if ((Math.abs(newX - x0) == 8 && newY - y0 == 0) || ((Math.abs(newX - x0)) == 4 && (Math.abs(newX - x0) == 4))) {
+                } else if (!multiMove || pawn.equals(equal) || Math.abs(newX - x0) == 8 && newY - y0 == 0 || Math.abs(newX - x0) == 4 && Math.abs(newX - x0) == 4) {
 
+                    multiMove=true;
+                    equal=pawn;
                     int x1 = x0 + (newX - x0) / 2;
                     int y1 = y0 + (newY - y0) / 2;
 
@@ -269,6 +272,7 @@ public class Client extends Application {
         Button button1 = new Button("Koniec tury");
         button1.setOnAction(event -> {
             czyTura = false;
+            multiMove=false;
         });
         Button button2 = new Button("Reset tury");
         button2.setOnAction(event -> {
