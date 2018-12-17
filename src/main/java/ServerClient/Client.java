@@ -158,39 +158,36 @@ public class Client extends Application {
         return (int) ((pixel + TILE_SIZE / 2) / TILE_SIZE);
     }
 
-    boolean multiMove = false;
-    Pawn equal=null;
 
+    //todo: przenieść do serwera
     private MoveResult tryMove(Pawn pawn, int newX, int newY, String colour) {
-//todo tak by miało to sens w client serwerze
+
         try {
-            if (czyTura = true) {
-                if (board[newX / 2][newY / 2].hasPawn()) {
-                    return new MoveResult(MoveType.NONE);
-                }
 
-                int x0 = toBoard(pawn.getOldX());
-                int y0 = toBoard(pawn.getOldY());
+            if (board[newX / 2][newY / 2].hasPawn()) {
+                return new MoveResult(MoveType.NONE);
+            }
+
+            int x0 = toBoard(pawn.getOldX());
+            int y0 = toBoard(pawn.getOldY());
 
 
-                if (!multiMove && (((Math.abs(newX - x0) == 4 && newY - y0 == 0) || ((Math.abs(newX - x0)) == 2 && (Math.abs(newX - x0) == 2))) && pawn.getType().name().equals(colour))) {
+            if ((((Math.abs(newX - x0) == 4 && newY - y0 == 0) || ((Math.abs(newX - x0)) == 2 && (Math.abs(newX - x0) == 2))) && pawn.getType().name().equals(colour))) {
 
-                    czyTura = false;
+
+                return new MoveResult(MoveType.NORMAL);
+
+            } else if ((Math.abs(newX - x0) == 8 && newY - y0 == 0) || ((Math.abs(newX - x0)) == 4 && (Math.abs(newX - x0) == 4))) {
+
+                int x1 = x0 + (newX - x0) / 2;
+                int y1 = y0 + (newY - y0) / 2;
+
+                if ((board[x1 / 2][y1 / 2].hasPawn()) && (pawn.getType().name().equals(colour))) {
+
                     return new MoveResult(MoveType.NORMAL);
-
-                } else if (!multiMove || pawn.equals(equal) || Math.abs(newX - x0) == 8 && newY - y0 == 0 || Math.abs(newX - x0) == 4 && Math.abs(newX - x0) == 4) {
-
-                    multiMove=true;
-                    equal=pawn;
-                    int x1 = x0 + (newX - x0) / 2;
-                    int y1 = y0 + (newY - y0) / 2;
-
-                    if ((board[x1 / 2][y1 / 2].hasPawn()) && (pawn.getType().name().equals(colour))) {
-
-                        return new MoveResult(MoveType.NORMAL);
-                    }
                 }
-            } else return new MoveResult(MoveType.NONE);
+            }
+
         } catch (NullPointerException e) {
             return new MoveResult(MoveType.NONE);
         }
@@ -209,23 +206,31 @@ public class Client extends Application {
             int x0 = toBoard(pawn.getOldX());
             int y0 = toBoard(pawn.getOldY());
             System.out.println(x0 / 2 + " OLD " + y0 / 2);
+/**
+ switch (result.getType()) {
 
-            switch (result.getType()) {
+ case NONE:
+ pawn.abortMove();
+ break;
+ case NORMAL:
+ pawn.abortMove();
+ try {
+ PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
+ printWriter.println(pawn.getType() + " " + x0 / 2 + " " + y0 / 2 + " " + newX / 2 + " " + newY / 2);
+ Thread.sleep(300);
+ } catch (IOException | InterruptedException e) {
+ e.printStackTrace();
+ }
+ break;
 
-                case NONE:
-                    pawn.abortMove();
-                    break;
-                case NORMAL:
-                    pawn.abortMove();
-                    try {
-                        PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
-                        printWriter.println(pawn.getType() + " " + x0 / 2 + " " + y0 / 2 + " " + newX / 2 + " " + newY / 2);
-                        Thread.sleep(300);
-                    } catch (IOException | InterruptedException e) {
-                        e.printStackTrace();
-                    }
-                    break;
-
+ }
+ */
+            try {
+                PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
+                printWriter.println(pawn.getType() + " " + colour + " " + x0 / 2 + " " + y0 / 2 + " " + newX / 2 + " " + newY / 2);
+                Thread.sleep(300);
+            } catch (IOException | InterruptedException e) {
+                e.printStackTrace();
             }
         });
         return pawn;
@@ -241,6 +246,7 @@ public class Client extends Application {
                 String toTokenise = bufferedReader.readLine();
                 StringTokenizer tokenizer = new StringTokenizer(toTokenise);
                 String type = tokenizer.nextToken();
+                String colour = tokenizer.nextToken();
                 int oldX = Integer.parseInt(tokenizer.nextToken());
                 int oldY = Integer.parseInt(tokenizer.nextToken());
                 int newX = Integer.parseInt(tokenizer.nextToken());
@@ -260,7 +266,7 @@ public class Client extends Application {
         String token = getConnection();
         String colour = getColour(token);
         System.out.println(colour);
-        primaryStage.setTitle("CHECKERS "+colour);
+        primaryStage.setTitle("CHECKERS " + colour);
         int number = c.getNumber(token);
         int scale = c.getScale(number);
         int players = c.getPlayers(number);
@@ -271,14 +277,13 @@ public class Client extends Application {
         ToolBar toolBar = new ToolBar();
         Button button1 = new Button("Koniec tury");
         button1.setOnAction(event -> {
-            czyTura = false;
-            multiMove=false;
+
+            WorkingThread.addI(WorkingThread.getI() + 1);
+            System.out.println(WorkingThread.getI() + 1);
+
         });
-        Button button2 = new Button("Reset tury");
-        button2.setOnAction(event -> {
-            czyTura = true;
-        });
-        toolBar.getItems().addAll(button1, button2);
+
+        toolBar.getItems().addAll(button1);
         VBox vbox = new VBox(toolBar);
         primaryStage.setScene(new Scene(makeMeBoard(scale, players, colour, vbox)));
         primaryStage.show();
@@ -293,11 +298,3 @@ public class Client extends Application {
 
 
 }
-
-
-
-
-
-
-
-
