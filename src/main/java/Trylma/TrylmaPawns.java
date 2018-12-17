@@ -40,38 +40,38 @@ public class TrylmaPawns {
      */
 
     private void createTwoPlayers(int[][] trylma, int scale) {
-        Player player1 = new PlayerA(trylma, scale);
-        Player player2 = new PlayerD(trylma, scale);
+        new PlayerA(trylma, scale);
+        new PlayerD(trylma, scale);
 
     }
 
 
     private void createThreePlayers(int[][] trylma, int scale) {
-        Player player1 = new PlayerA(trylma, scale);
-        Player player2 = new PlayerC(trylma, scale);
-        Player player3 = new PlayerE(trylma, scale);
+        new PlayerA(trylma, scale);
+        new PlayerC(trylma, scale);
+        new PlayerE(trylma, scale);
 
 
     }
 
 
     private void createFourPlayers(int[][] trylma, int scale) {
-        Player player1 = new PlayerB(trylma, scale);
-        Player player2 = new PlayerC(trylma, scale);
-        Player player3 = new PlayerE(trylma, scale);
-        Player player4 = new PlayerF(trylma, scale);
+        new PlayerB(trylma, scale);
+        new PlayerC(trylma, scale);
+        new PlayerE(trylma, scale);
+        new PlayerF(trylma, scale);
 
 
     }
 
 
     private void createSixPlayers(int[][] trylma, int scale) {
-        Player player1 = new PlayerA(trylma, scale);
-        Player player2 = new PlayerB(trylma, scale);
-        Player player3 = new PlayerC(trylma, scale);
-        Player player4 = new PlayerD(trylma, scale);
-        Player player5 = new PlayerE(trylma, scale);
-        Player player6 = new PlayerF(trylma, scale);
+        new PlayerA(trylma, scale);
+        new PlayerB(trylma, scale);
+        new PlayerC(trylma, scale);
+        new PlayerD(trylma, scale);
+        new PlayerE(trylma, scale);
+        new PlayerF(trylma, scale);
 
     }
 
