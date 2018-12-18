@@ -13,8 +13,6 @@ import javafx.scene.text.*;
 import javafx.stage.Stage;
 import sun.font.FontFamily;
 
-//  TODO: PRAKTYCZNIE GOTOWE
-
 public class MainWindow extends Application {
 
     private Server server;
