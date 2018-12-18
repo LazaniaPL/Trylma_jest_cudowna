@@ -30,7 +30,7 @@ public class Client extends Application {
 
     private Socket socket;
 
-    boolean czyTura = true;
+
 
     public Client() {
         try {
@@ -159,7 +159,7 @@ public class Client extends Application {
     }
 
 
-    //todo: przenieść do serwera
+    //todo: przenieść do serwera i board też
     private MoveResult tryMove(Pawn pawn, int newX, int newY, String colour) {
 
         try {
@@ -225,12 +225,21 @@ public class Client extends Application {
 
  }
  */
-            try {
-                PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
-                printWriter.println(pawn.getType() + " " + colour + " " + x0 / 2 + " " + y0 / 2 + " " + newX / 2 + " " + newY / 2);
-                Thread.sleep(300);
-            } catch (IOException | InterruptedException e) {
-                e.printStackTrace();
+            switch (result.getType()) {
+
+                case NONE:
+                    pawn.abortMove();
+                    break;
+                case NORMAL:
+                    pawn.abortMove();
+                    try {
+                        PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
+                        printWriter.println(pawn.getType() + " " + colour + " " + x0 / 2 + " " + y0 / 2 + " " + newX / 2 + " " + newY / 2);
+                        Thread.sleep(300);
+                    } catch (IOException | InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    break;
             }
         });
         return pawn;
