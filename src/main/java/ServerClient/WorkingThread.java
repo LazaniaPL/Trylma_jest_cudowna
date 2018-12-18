@@ -64,13 +64,14 @@ public class WorkingThread implements Runnable {
                         System.out.println(move);
                         StringTokenizer tokenizer = new StringTokenizer(move);
                         String type = tokenizer.nextToken();
-                        String colour= tokenizer.nextToken();
+
 //todo: tutaj funkcja sprawdzająca
 
                         if (type.equals(kolorki.get(i))) {
                             for (PrintWriter writer : writers) {
                                 writer.println(move);
                                 Thread.sleep(20);
+
                             }
 
                             i++;
@@ -88,12 +89,19 @@ public class WorkingThread implements Runnable {
 
         }
     }
-    public static int getI()
-    {
+
+    private boolean check() {
+
+
+
+        return false;
+    }
+
+    public static int getI() {
         return i;
     }
 
     public static void addI(int a) {
-        i=a;
+        i = a;
     }
 }
