@@ -1,50 +1,107 @@
 package ServerClient;
 
+
 import javafx.util.Pair;
 
 import java.util.ArrayList;
 
-public class Check {
+class Check {
     private Tile[][] board;
 
-    int x;
-    int y;
-    ArrayList<Pair<Integer, Integer>> moves = new ArrayList<>();
-    ArrayList<Pair<Integer, Integer>> realMoves = new ArrayList<>();
-    int newX;
-    int newY;
-    boolean wanna = false;
+    private int x;
+    private int y;
+    private ArrayList<Pair<Integer, Integer>> realMoves = new ArrayList<>();
 
 
-    public Check() {
+    Check(int x, int y, Tile[][] board) {
+        this.x = x;
+        this.y = y;
+        this.board = board;
+        start();
+
 //todo: czy jest tu pole
-        moves.add(new Pair<>(x, y + 2)); // case 1
-        moves.add(new Pair<>(x, y - 2)); // case 2
-        moves.add(new Pair<>(x + 1, y - 1)); // itp
-        moves.add(new Pair<>(x + 1, y + 1));
-        moves.add(new Pair<>(x - 1, y - 1));
-        moves.add(new Pair<>(x - 1, y + 1));
-        for (Pair p : moves) {
-            int left = (int) p.getKey();
-            int right = (int) p.getValue();
-            if (!board[left][right].hasPawn()) {
+    }
+
+    ArrayList<Pair<Integer, Integer>> returnRealMoves() {
+        return realMoves;
+    }
+
+    private void start() {
+        System.out.println("work");
+        ArrayList<Pair<Integer, Integer>>moves=doMove(x, y);
+        int index = 0;
+        for (Pair<Integer, Integer> p : moves) {
+            int l = p.getKey();
+            int r = p.getValue();
+            if (!board[l][r].hasPawn()) {
                 realMoves.add(p);
-            } else if (board[left][right].hasPawn()) {
-                jump1(left, right);
+            } else if (board[l][r].hasPawn()) {
+                System.out.println("jump1");
+                jump1(x, y, index,moves);
+            }
+            index++;
+        }
+
+
+    }
+
+    private void jump1(int x, int y, int index,ArrayList<Pair<Integer, Integer>> moves) {
+        //todo: dla różnych case dodanie do wyniku konkretnego przypadku
+        //todo: wtedy możemy dać jump2
+        Pair<Integer, Integer> pair = new Pair<>(2 * moves.get(index).getKey() - x, 2 * moves.get(index).getValue() - y);
+        int l = pair.getKey();
+        int r = pair.getValue();
+        if (board[l][r] != null && !board[l][r].hasPawn()) {
+            boolean czyJest = false;
+            for (Pair<Integer, Integer> p : realMoves) {
+                if (p.equals(pair)) {
+                    czyJest = true;
+                    break;
+                }
+            }
+            if (!czyJest) {
+                realMoves.add(pair);
+                jump2(l, r, index);
             }
         }
 
     }
 
-    public void jump1(int x, int y) {
-        //todo: dla różnych case dodanie do wyniku konkretnego przypadku
-        //todo: wtedy możemy dać jump2
-        int newX, newY;
-        jump2(x, y);
+    private void jump2(int x, int y, int index) {
+
+        ArrayList<Pair<Integer, Integer>>moves=doMove(x, y);
+        System.out.println("jump2");
+        int index2 = 0;
+        for (Pair<Integer, Integer> p : moves) {
+            if (index == index2) {
+                index2++;
+            } else {
+                int l = p.getKey();
+                int r = p.getValue();
+                if (board[l][r].hasPawn()) {
+                    jump1(x, y, index2,moves);
+                }
+                index2++;
+            }
+        }
+
+        //jump1(x, y);
     }
 
-    public void jump2(int x, int y) {
+    private void isBoardExist(int x, int y,ArrayList<Pair<Integer, Integer>> moves) {
+        if (board[x][y] != null) {
+            moves.add(new Pair<>(x, y));
+        }
+    }
 
-        jump1(x, y);
+    private ArrayList<Pair<Integer, Integer>> doMove(int x, int y) {
+        ArrayList<Pair<Integer, Integer>>moves = new ArrayList<>();
+        isBoardExist(x + 2, y,moves); // case 1
+        isBoardExist(x - 2, y,moves); // case 2
+        isBoardExist(x + 1, y - 1,moves); // itp
+        isBoardExist(x + 1, y + 1,moves);
+        isBoardExist(x - 1, y - 1,moves);
+        isBoardExist(x - 1, y + 1,moves);
+        return moves;
     }
 }

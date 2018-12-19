@@ -11,6 +11,7 @@ import javafx.scene.control.ToolBar;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.util.Pair;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -29,7 +30,6 @@ public class Client extends Application {
     private Group pawnGroup = new Group();
 
     private Socket socket;
-
 
 
     public Client() {
@@ -76,7 +76,7 @@ public class Client extends Application {
         Pane pane = new Pane();
         pane.setPrefSize((6 * scale + 1) * (1.5 * TILE_SIZE), (1.5 * TILE_SIZE) * (8 * scale + 1));
         TrylmaBuilder trylmaBuilder = new TrylmaBuilder(scale);
-        TrylmaPawns trylmaPawns = new TrylmaPawns(players, trylmaBuilder.trylma, scale);
+        new TrylmaPawns(players, trylmaBuilder.trylma, scale);
         makePiece(pane, scale, trylmaBuilder, colour);
         pane.getChildren().add(vBox);
 
@@ -194,6 +194,40 @@ public class Client extends Application {
         return new MoveResult(MoveType.NONE);
     }
 
+    /*
+        private Pawn makePawn(PawnColors type, int x, int y, String colour) {
+            Pawn pawn = new Pawn(type, x, y);
+            pawn.setOnMouseReleased(event -> {
+                int newX = toBoard(pawn.getLayoutX()) - 1;
+                int newY = toBoard(pawn.getLayoutY()) - 1;
+                System.out.println(newX / 2 + "  " + newY / 2);
+
+                MoveResult result = tryMove(pawn, newX, newY, colour);
+
+                int x0 = toBoard(pawn.getOldX());
+                int y0 = toBoard(pawn.getOldY());
+                System.out.println(x0 / 2 + " OLD " + y0 / 2);
+
+                switch (result.getType()) {
+
+                    case NONE:
+                        pawn.abortMove();
+                        break;
+                    case NORMAL:
+                        pawn.abortMove();
+                        try {
+                            PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
+                            printWriter.println(pawn.getType() + " " + colour + " " + x0 / 2 + " " + y0 / 2 + " " + newX / 2 + " " + newY / 2);
+                            Thread.sleep(300);
+                        } catch (IOException | InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        break;
+                }
+            });
+            return pawn;
+        }
+    */
     private Pawn makePawn(PawnColors type, int x, int y, String colour) {
         Pawn pawn = new Pawn(type, x, y);
         pawn.setOnMouseReleased(event -> {
@@ -201,46 +235,32 @@ public class Client extends Application {
             int newY = toBoard(pawn.getLayoutY()) - 1;
             System.out.println(newX / 2 + "  " + newY / 2);
 
-            MoveResult result = tryMove(pawn, newX, newY, colour);
+            //MoveResult result = tryMove(pawn, newX, newY, colour);
 
             int x0 = toBoard(pawn.getOldX());
             int y0 = toBoard(pawn.getOldY());
             System.out.println(x0 / 2 + " OLD " + y0 / 2);
-/**
- switch (result.getType()) {
-
- case NONE:
- pawn.abortMove();
- break;
- case NORMAL:
- pawn.abortMove();
- try {
- PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
- printWriter.println(pawn.getType() + " " + x0 / 2 + " " + y0 / 2 + " " + newX / 2 + " " + newY / 2);
- Thread.sleep(300);
- } catch (IOException | InterruptedException e) {
- e.printStackTrace();
- }
- break;
-
- }
- */
-            switch (result.getType()) {
-
-                case NONE:
-                    pawn.abortMove();
-                    break;
-                case NORMAL:
-                    pawn.abortMove();
+            Check check = new Check(x0/2, y0/2, board);
+            //System.out.println(check.returnRealMoves());
+            pawn.abortMove();
+            for (Pair<Integer, Integer> p : check.returnRealMoves()) {
+                int l = p.getKey();
+                int r = p.getValue();
+                System.out.println(l + " + " + r);
+                if (l*2 == newX && r*2 == newY) {
                     try {
+                        System.out.println("poszło");
                         PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
                         printWriter.println(pawn.getType() + " " + colour + " " + x0 / 2 + " " + y0 / 2 + " " + newX / 2 + " " + newY / 2);
                         Thread.sleep(300);
                     } catch (IOException | InterruptedException e) {
                         e.printStackTrace();
                     }
-                    break;
+
+                } else
+                    pawn.abortMove();
             }
+
         });
         return pawn;
     }
