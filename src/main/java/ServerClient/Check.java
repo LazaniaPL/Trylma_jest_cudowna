@@ -12,14 +12,11 @@ class Check {
     private int y;
     private ArrayList<Pair<Integer, Integer>> realMoves = new ArrayList<>();
 
-
     Check(int x, int y, Tile[][] board) {
         this.x = x;
         this.y = y;
         this.board = board;
         start();
-
-//todo: czy jest tu pole
     }
 
     ArrayList<Pair<Integer, Integer>> returnRealMoves() {
@@ -28,7 +25,7 @@ class Check {
 
     private void start() {
         System.out.println("work");
-        ArrayList<Pair<Integer, Integer>>moves=doMove(x, y);
+        ArrayList<Pair<Integer, Integer>> moves = doMove(x, y);
         int index = 0;
         for (Pair<Integer, Integer> p : moves) {
             int l = p.getKey();
@@ -37,7 +34,7 @@ class Check {
                 realMoves.add(p);
             } else if (board[l][r].hasPawn()) {
                 System.out.println("jump1");
-                jump1(x, y, index,moves);
+                jump1(x, y, index, moves);
             }
             index++;
         }
@@ -45,9 +42,7 @@ class Check {
 
     }
 
-    private void jump1(int x, int y, int index,ArrayList<Pair<Integer, Integer>> moves) {
-        //todo: dla różnych case dodanie do wyniku konkretnego przypadku
-        //todo: wtedy możemy dać jump2
+    private void jump1(int x, int y, int index, ArrayList<Pair<Integer, Integer>> moves) {
         Pair<Integer, Integer> pair = new Pair<>(2 * moves.get(index).getKey() - x, 2 * moves.get(index).getValue() - y);
         int l = pair.getKey();
         int r = pair.getValue();
@@ -64,44 +59,36 @@ class Check {
                 jump2(l, r, index);
             }
         }
-
     }
 
     private void jump2(int x, int y, int index) {
-
-        ArrayList<Pair<Integer, Integer>>moves=doMove(x, y);
-        System.out.println("jump2");
+        ArrayList<Pair<Integer, Integer>> moves = doMove(x, y);
         int index2 = 0;
         for (Pair<Integer, Integer> p : moves) {
-            if (index == index2) {
-                index2++;
-            } else {
-                int l = p.getKey();
-                int r = p.getValue();
-                if (board[l][r].hasPawn()) {
-                    jump1(x, y, index2,moves);
-                }
-                index2++;
-            }
-        }
 
-        //jump1(x, y);
+            int l = p.getKey();
+            int r = p.getValue();
+            if (board[l][r].hasPawn()) {
+                jump1(x, y, index2, moves);
+            }
+            index2++;
+        }
     }
 
-    private void isBoardExist(int x, int y,ArrayList<Pair<Integer, Integer>> moves) {
+    private void isBoardExist(int x, int y, ArrayList<Pair<Integer, Integer>> moves) {
         if (board[x][y] != null) {
             moves.add(new Pair<>(x, y));
         }
     }
 
     private ArrayList<Pair<Integer, Integer>> doMove(int x, int y) {
-        ArrayList<Pair<Integer, Integer>>moves = new ArrayList<>();
-        isBoardExist(x + 2, y,moves); // case 1
-        isBoardExist(x - 2, y,moves); // case 2
-        isBoardExist(x + 1, y - 1,moves); // itp
-        isBoardExist(x + 1, y + 1,moves);
-        isBoardExist(x - 1, y - 1,moves);
-        isBoardExist(x - 1, y + 1,moves);
+        ArrayList<Pair<Integer, Integer>> moves = new ArrayList<>();
+        isBoardExist(x + 2, y, moves); // case 1
+        isBoardExist(x - 2, y, moves); // case 2
+        isBoardExist(x + 1, y - 1, moves); // itp
+        isBoardExist(x + 1, y + 1, moves);
+        isBoardExist(x - 1, y - 1, moves);
+        isBoardExist(x - 1, y + 1, moves);
         return moves;
     }
 }
