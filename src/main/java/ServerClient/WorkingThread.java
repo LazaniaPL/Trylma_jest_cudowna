@@ -46,7 +46,7 @@ public class WorkingThread implements Runnable {
 
             BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 
-            String data = scale + "" + players + " " + colours.get(0)+" "+i;
+            String data = scale + "" + players + " " + colours.get(0) + " " + i;
             colours.remove(0);
             out.println(data);
             writers.add(out);
@@ -80,9 +80,26 @@ public class WorkingThread implements Runnable {
                     synchronized (this) {
 
                         System.out.println(move);
-                        move=move+" "+i;
+                        move = move + " " + i;
                         StringTokenizer tokenizer = new StringTokenizer(move);
                         String type = tokenizer.nextToken();
+                        if (type.equals("false")) {
+                            String colour = tokenizer.nextToken();
+                            if (colour.equals(kolorki.get(i))) {
+                                for (PrintWriter writer : writers) {
+                                    writer.println(move);
+                                    Thread.sleep(20);
+
+                                }
+
+
+                                i++;
+                                //System.out.println(players);
+                                if (i == players) {
+                                    i = 0;
+                                }
+                            }
+                        }
                         /*
                         Check check = new Check(x0, y0, board);
                         //System.out.println(check.returnRealMoves());
@@ -98,24 +115,23 @@ public class WorkingThread implements Runnable {
                             }
                         }
 */
-//todo: tutaj funkcja sprawdzająca
+                        else {
+                            if (type.equals(kolorki.get(i))) {
 
-                        if (type.equals(kolorki.get(i))) {
-                            for (PrintWriter writer : writers) {
-                                //System.out.println(writers);
-                                writer.println(move);
-                                Thread.sleep(20);
+                                for (PrintWriter writer : writers) {
+                                    writer.println(move);
+                                    Thread.sleep(20);
 
-                            }
-                            System.out.println(i);
+                                }
 
-                            i++;
-                            //System.out.println(players);
-                            if (i == players) {
-                                i = 0;
+
+                                i++;
+                                //System.out.println(players);
+                                if (i == players) {
+                                    i = 0;
+                                }
                             }
                         }
-
                     }
                 }
             }

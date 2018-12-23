@@ -22,8 +22,10 @@ public class MainWindow extends Application {
         server.stop();
     }
 
-    private void  setRunning(int playerNumbers, int scale){
+    private void  setRunning(int playerNumbers, int scale,int bots){
         server = new Server(8188, playerNumbers, scale);
+        //WorkingBotClient workingBotClient=new WorkingBotClient();
+        //workingBotClient.start(bots);
         new Thread(server).start();
     }
 
@@ -33,9 +35,7 @@ public class MainWindow extends Application {
         root.setPrefSize(520,390);
 
         String text =   "WELCOME IN OUR PROJECT -- CHINESE CHECKERS.\n\n YOU CAN PLAY EITHER WITH YOUR FRIENDS OR BOT,\n" +
-                        "WHICH YOU CAN ADD LATER...\n\n TO START THE GAME FIRST SELECT BOARD SIZE AND NUMBER\n OF PLAYERS " +
-                        "THEN CLICK \"ACCEPT\", IN CASE OF WRONG DECISION\n MAKE SURE TU RESET SERVER " +
-                        "BY CLICKING \"ABORT\" BUTTON ";
+                        "WHICH YOU CAN ADD LATER...\n\n ";
 
 
         Text initialText = new Text(10, 30, text);
@@ -48,6 +48,14 @@ public class MainWindow extends Application {
         Spinner<Integer> numberScale  = new Spinner<>(3,10,4);
         numberScale.setTranslateX(290);
         numberScale.setTranslateY(260);
+
+        Label labelBots = new Label("NUMBER OF BOTS:");
+        labelBots.setTranslateX(100);
+        labelBots.setTranslateY(130);
+
+        Spinner<Integer> numberBots  = new Spinner<>(1,6,0);
+        numberBots.setTranslateX(100);
+        numberBots.setTranslateY(160);
 
         Label labelPlayers = new Label("NUMBER OF PLAYERS:");
         labelPlayers.setTranslateX(40);
@@ -62,7 +70,7 @@ public class MainWindow extends Application {
         createServer.setTranslateX(125);
         createServer.setTranslateY(320);
         createServer.setOnAction(event -> {
-            setRunning(numberPlayers.getValue(),numberScale.getValue());
+            setRunning(numberPlayers.getValue(),numberScale.getValue(),numberBots.getValue());
            System.out.println("SERVER STARTED");
         });
 
@@ -76,8 +84,8 @@ public class MainWindow extends Application {
             }
         });
 
-        root.getChildren().addAll(labelScale, labelPlayers, initialText);
-        root.getChildren().addAll(numberScale, numberPlayers, createServer, exit);
+        root.getChildren().addAll(labelScale, labelPlayers,labelBots, initialText);
+        root.getChildren().addAll(numberScale, numberPlayers,numberBots, createServer, exit);
 
         return root;
 

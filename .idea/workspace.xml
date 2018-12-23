@@ -3,13 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="d3574478-9a66-42dc-9ea2-b3d65faa34a2" name="Default Changelist" comment="ja to naprawie">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ServerClient/Check.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServerClient/Check.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ServerClient/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServerClient/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ServerClient/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServerClient/MainWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ServerClient/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServerClient/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ServerClient/WorkingThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ServerClient/WorkingThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ServerClient/Client$ClientTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServerClient/Client$ClientTask.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ServerClient/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServerClient/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ServerClient/Client$ClientTask.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ServerClient/Client.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ServerClient/MainWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServerClient/MainWindow.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ServerClient/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServerClient/Server.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ServerClient/WorkingThread.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ServerClient/WorkingThread.class" afterDir="false" />
     </list>
@@ -34,11 +33,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="327" column="16" selection-start-line="327" selection-start-column="16" selection-end-line="327" selection-end-column="16" />
+            <state relative-caret-position="68">
+              <caret line="325" column="56" selection-start-line="325" selection-start-column="56" selection-end-line="325" selection-end-column="56" />
               <folding>
                 <element signature="e#1636#1637#0" expanded="true" />
                 <element signature="e#1688#1689#0" expanded="true" />
+                <element signature="method#makePiece#0;class#Client#0" />
+                <element signature="e#5950#5951#0" expanded="true" />
+                <element signature="e#6016#6017#0" expanded="true" />
                 <element signature="method#tryMove#0;class#Client#0" />
               </folding>
             </state>
@@ -48,11 +50,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/WorkingThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-238">
-              <caret line="82" column="39" selection-start-line="82" selection-start-column="39" selection-end-line="82" selection-end-column="39" />
+            <state relative-caret-position="629">
+              <caret line="117" column="2" selection-start-line="117" selection-start-column="2" selection-end-line="117" selection-end-column="2" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4336#4337#0" expanded="true" />
+                <element signature="e#5223#5224#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -61,7 +63,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-663">
+            <state relative-caret-position="-102">
               <caret line="56" column="136" selection-start-line="56" selection-start-column="136" selection-end-line="56" selection-end-column="136" />
               <folding>
                 <element signature="e#1061#1062#0" expanded="true" />
@@ -74,8 +76,46 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/MainWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="55" column="61" selection-start-line="55" selection-start-column="61" selection-end-line="55" selection-end-column="61" />
+            <state relative-caret-position="-901">
+              <caret line="26" column="10" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/WorkingBotClient.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="595">
+              <caret line="76" column="48" selection-start-line="76" selection-start-column="48" selection-end-line="76" selection-end-column="48" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#call#0;class#ClientTask#0;class#WorkingBotClient#0" />
+                <element signature="e#4104#4105#0" expanded="true" />
+                <element signature="method#makePiece#0;class#WorkingBotClient#0" />
+                <element signature="e#8933#8934#0" expanded="true" />
+                <element signature="e#9009#9010#0" expanded="true" />
+                <element signature="method#getConnection#0;class#WorkingBotClient#0" />
+                <element signature="method#getNumber#0;class#WorkingBotClient#0" />
+                <element signature="method#getColour#0;class#WorkingBotClient#0" />
+                <element signature="method#getI#0;class#WorkingBotClient#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/Pawn.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-61">
+              <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#390#391#0" expanded="true" />
+                <element signature="e#417#418#0" expanded="true" />
+                <element signature="method#Pawn#0;class#Pawn#0" />
+                <element signature="e#1526#1527#0" expanded="true" />
+                <element signature="e#1561#1562#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -127,7 +167,6 @@
         <option value="$PROJECT_DIR$/src/main/java/Trylma/TrylmaBuilder.java" />
         <option value="$PROJECT_DIR$/src/main/java/Trylma/gui/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/ServerClient/TrylmaGridPane.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ServerClient/ClientTask.java" />
         <option value="$PROJECT_DIR$/src/main/java/ServerClient/MoveType.java" />
         <option value="$PROJECT_DIR$/src/main/java/ServerClient/PawnColors.java" />
         <option value="$PROJECT_DIR$/src/main/java/ServerClient/Pawn.java" />
@@ -138,6 +177,9 @@
         <option value="$PROJECT_DIR$/src/main/java/ServerClient/Check.java" />
         <option value="$PROJECT_DIR$/src/main/java/ServerClient/Server.java" />
         <option value="$PROJECT_DIR$/src/main/java/ServerClient/Server.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ServerClient/WorkingBotThread.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ServerClient/ClientTask.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ServerClient/WorkingBotClient.java" />
         <option value="$PROJECT_DIR$/src/main/java/ServerClient/MainWindow.java" />
         <option value="$PROJECT_DIR$/src/main/java/ServerClient/WorkingThread.java" />
         <option value="$PROJECT_DIR$/src/main/java/ServerClient/Client.java" />
@@ -213,10 +255,11 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="TODO_SCOPE" value="All Places" />
     <property name="ToolWindowMessages.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545526389603" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545567542265" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -413,7 +456,14 @@
       <option name="project" value="LOCAL" />
       <updated>1545088804055</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Pokazują sie tury, koniec tury jeszcze nie działa">
+      <created>1545526430269</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1545526430269</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -449,7 +499,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="185897000" />
+    <option name="totallyTimeSpent" value="190973000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -540,7 +590,8 @@
     <MESSAGE value="Wszystko działa ale jeszcze nie obrócone" />
     <MESSAGE value="Kolejkowanie działa dla każdego" />
     <MESSAGE value="Przed psuciem sprawdzania ruchów" />
-    <option name="LAST_COMMIT_MESSAGE" value="Przed psuciem sprawdzania ruchów" />
+    <MESSAGE value="Pokazują sie tury, koniec tury jeszcze nie działa" />
+    <option name="LAST_COMMIT_MESSAGE" value="Pokazują sie tury, koniec tury jeszcze nie działa" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
@@ -679,7 +730,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/TrylmaGridPane.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/gui/Main.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/ClientTask.java" />
     <entry file="uml://JAVA/ServerClient">
       <provider selected="true" editor-type-id="UmlEditorProvider">
         <state>
@@ -785,21 +835,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/Pawn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="70" column="29" lean-forward="true" selection-start-line="70" selection-start-column="29" selection-end-line="70" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#390#391#0" expanded="true" />
-            <element signature="e#417#418#0" expanded="true" />
-            <element signature="method#Pawn#0;class#Pawn#0" />
-            <element signature="e#1526#1527#0" expanded="true" />
-            <element signature="e#1561#1562#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Trylma/players/PlayerB.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -875,16 +910,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/ClientTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/Pawn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-61">
+          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#390#391#0" expanded="true" />
+            <element signature="e#417#418#0" expanded="true" />
+            <element signature="method#Pawn#0;class#Pawn#0" />
+            <element signature="e#1526#1527#0" expanded="true" />
+            <element signature="e#1561#1562#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/MainWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="55" column="61" selection-start-line="55" selection-start-column="61" selection-end-line="55" selection-end-column="61" />
+        <state relative-caret-position="-901">
+          <caret line="26" column="10" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/WorkingBotClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="76" column="48" selection-start-line="76" selection-start-column="48" selection-end-line="76" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#call#0;class#ClientTask#0;class#WorkingBotClient#0" />
+            <element signature="e#4104#4105#0" expanded="true" />
+            <element signature="method#makePiece#0;class#WorkingBotClient#0" />
+            <element signature="e#8933#8934#0" expanded="true" />
+            <element signature="e#9009#9010#0" expanded="true" />
+            <element signature="method#getConnection#0;class#WorkingBotClient#0" />
+            <element signature="method#getNumber#0;class#WorkingBotClient#0" />
+            <element signature="method#getColour#0;class#WorkingBotClient#0" />
+            <element signature="method#getI#0;class#WorkingBotClient#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-663">
+        <state relative-caret-position="-102">
           <caret line="56" column="136" selection-start-line="56" selection-start-column="136" selection-end-line="56" selection-end-column="136" />
           <folding>
             <element signature="e#1061#1062#0" expanded="true" />
@@ -895,22 +971,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/WorkingThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-238">
-          <caret line="82" column="39" selection-start-line="82" selection-start-column="39" selection-end-line="82" selection-end-column="39" />
+        <state relative-caret-position="629">
+          <caret line="117" column="2" selection-start-line="117" selection-start-column="2" selection-end-line="117" selection-end-column="2" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4336#4337#0" expanded="true" />
+            <element signature="e#5223#5224#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ServerClient/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="327" column="16" selection-start-line="327" selection-start-column="16" selection-end-line="327" selection-end-column="16" />
+        <state relative-caret-position="68">
+          <caret line="325" column="56" selection-start-line="325" selection-start-column="56" selection-end-line="325" selection-end-column="56" />
           <folding>
             <element signature="e#1636#1637#0" expanded="true" />
             <element signature="e#1688#1689#0" expanded="true" />
+            <element signature="method#makePiece#0;class#Client#0" />
+            <element signature="e#5950#5951#0" expanded="true" />
+            <element signature="e#6016#6017#0" expanded="true" />
             <element signature="method#tryMove#0;class#Client#0" />
           </folding>
         </state>

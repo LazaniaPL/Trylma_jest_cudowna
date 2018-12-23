@@ -319,23 +319,29 @@ public class Client extends Application {
                 Thread.sleep(300);
                 String toTokenise = bufferedReader.readLine();
                 StringTokenizer tokenizer = new StringTokenizer(toTokenise);
+
                 String type = tokenizer.nextToken();
-
-                int oldX = Integer.parseInt(tokenizer.nextToken());
-                int oldY = Integer.parseInt(tokenizer.nextToken());
-                int newX = Integer.parseInt(tokenizer.nextToken());
-                int newY = Integer.parseInt(tokenizer.nextToken());
-                int kogoTura = Integer.parseInt(tokenizer.nextToken());
-
+                int kogoTura;
+                if (type.equals("false")) {
+                    String colour=tokenizer.nextToken();
+                    kogoTura = Integer.parseInt(tokenizer.nextToken());
+                } else {
+                    int oldX = Integer.parseInt(tokenizer.nextToken());
+                    int oldY = Integer.parseInt(tokenizer.nextToken());
+                    int newX = Integer.parseInt(tokenizer.nextToken());
+                    int newY = Integer.parseInt(tokenizer.nextToken());
+                    kogoTura = Integer.parseInt(tokenizer.nextToken());
+                    Pawn pawn = board[oldX][oldY].getPawn();
+                    pawn.move(newX, newY);
+                    board[oldX][oldY].setPawn(null);
+                    board[newX][newY].setPawn(pawn);
+                }
                 String info = "Tura  " + setKogoTura(global_players, kogoTura + 1);
                 System.out.println(info);
                 Platform.runLater(() -> {
                     label.setText(info);
                 });
-                Pawn pawn = board[oldX][oldY].getPawn();
-                pawn.move(newX, newY);
-                board[oldX][oldY].setPawn(null);
-                board[newX][newY].setPawn(pawn);
+
             }
         }
     }
@@ -365,7 +371,13 @@ public class Client extends Application {
         //Text text = new Text();
         Button button1 = new Button("Koniec tury");
         button1.setOnAction(event -> {
-
+            try {
+                PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
+                printWriter.println("false" + " " + colour);
+                Thread.sleep(300);
+            } catch (IOException | InterruptedException e) {
+                e.printStackTrace();
+            }
         });
 
         toolBar.getItems().addAll(button1, label);
@@ -376,7 +388,7 @@ public class Client extends Application {
     }
 
     private String setKogoTura(int players, int kogoTura) {
-        if (players < kogoTura) {
+        if (players <= kogoTura) {
             kogoTura = 0;
         }
         ArrayList kolorki = null;
