@@ -53,7 +53,7 @@ public class MainWindow extends Application {
         labelPlayers.setTranslateX(40);
         labelPlayers.setTranslateY(230);
 
-        Spinner<Integer> numberPlayers  = new Spinner<>(1,6,6);
+        Spinner<Integer> numberPlayers  = new Spinner<>(1,6,2);
         numberPlayers.setTranslateX(40);
         numberPlayers.setTranslateY(260);
 
@@ -63,7 +63,7 @@ public class MainWindow extends Application {
         createServer.setTranslateY(320);
         createServer.setOnAction(event -> {
             setRunning(numberPlayers.getValue(),numberScale.getValue());
-            System.out.println("SERVER STARTED");
+           System.out.println("SERVER STARTED");
         });
 
         Button exit = new Button("EXIT");

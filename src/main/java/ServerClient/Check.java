@@ -24,7 +24,7 @@ class Check {
     }
 
     private void start() {
-        System.out.println("work");
+
         ArrayList<Pair<Integer, Integer>> moves = doMove(x, y);
         int index = 0;
         for (Pair<Integer, Integer> p : moves) {
@@ -33,7 +33,7 @@ class Check {
             if (!board[l][r].hasPawn()) {
                 realMoves.add(p);
             } else if (board[l][r].hasPawn()) {
-                System.out.println("jump1");
+
                 jump1(x, y, index, moves);
             }
             index++;

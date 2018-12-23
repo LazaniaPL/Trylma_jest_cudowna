@@ -3,21 +3,23 @@ package ServerClient;
 import Trylma.TrylmaBuilder;
 import Trylma.TrylmaPawns;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ToolBar;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.util.Pair;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 
@@ -30,6 +32,9 @@ public class Client extends Application {
     private Group pawnGroup = new Group();
 
     private Socket socket;
+    private int global_players;
+
+    private Label label = new Label();
 
 
     public Client() {
@@ -62,6 +67,12 @@ public class Client extends Application {
         return tokenizer.nextToken();
     }
 
+    private String getI(String token) {
+        StringTokenizer tokenizer = new StringTokenizer(token);
+        tokenizer.nextToken();
+        tokenizer.nextToken();
+        return tokenizer.nextToken();
+    }
 
     private int getScale(int number) {
         return (number - (number % 10)) / 10;
@@ -94,7 +105,7 @@ public class Client extends Application {
         for (int i = 0; i < 6 * scale + 1; i++) {
             for (int j = 0; j < 4 * scale + 1; j++) {
                 int temp = trylma.trylma[i][j];
-                Pawn pawn = null;
+                Pawn pawn;
                 switch (temp) {
                     case 1:
                         Tile tileWhite = new Tile("WHITE", i, j);
@@ -228,6 +239,37 @@ public class Client extends Application {
             return pawn;
         }
     */
+    /*
+    private Pawn makePawn(PawnColors type, int x, int y, String colour) {
+        Pawn pawn = new Pawn(type, x, y);
+        pawn.setOnMouseReleased(event -> {
+            int newX = toBoard(pawn.getLayoutX()) - 1;
+            int newY = toBoard(pawn.getLayoutY()) - 1;
+            System.out.println(newX / 2 + "  " + newY / 2);
+
+            MoveResult result = tryMove(pawn, newX, newY, colour);
+
+            int x0 = toBoard(pawn.getOldX());
+            int y0 = toBoard(pawn.getOldY());
+            System.out.println(x0 / 2 + " OLD " + y0 / 2);
+
+
+
+                    pawn.abortMove();
+                    try {
+                        PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
+                        printWriter.println(pawn.getType()  + " " + x0 / 2 + " " + y0 / 2 + " " + newX / 2 + " " + newY / 2);
+                        Thread.sleep(300);
+                    } catch (IOException | InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+
+        });
+        return pawn;
+    }
+    */
+
     private Pawn makePawn(PawnColors type, int x, int y, String colour) {
         Pawn pawn = new Pawn(type, x, y);
         pawn.setOnMouseReleased(event -> {
@@ -240,27 +282,30 @@ public class Client extends Application {
             int x0 = toBoard(pawn.getOldX());
             int y0 = toBoard(pawn.getOldY());
             System.out.println(x0 / 2 + " OLD " + y0 / 2);
-            Check check = new Check(x0/2, y0/2, board);
+            Check check = new Check(x0 / 2, y0 / 2, board);
             //System.out.println(check.returnRealMoves());
-            pawn.abortMove();
-            for (Pair<Integer, Integer> p : check.returnRealMoves()) {
-                int l = p.getKey();
-                int r = p.getValue();
-                System.out.println(l + " + " + r);
-                if (l*2 == newX && r*2 == newY) {
-                    try {
-                        System.out.println("poszło");
-                        PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
-                        printWriter.println(pawn.getType() + " " + colour + " " + x0 / 2 + " " + y0 / 2 + " " + newX / 2 + " " + newY / 2);
-                        Thread.sleep(300);
-                    } catch (IOException | InterruptedException e) {
-                        e.printStackTrace();
-                    }
+            if (!pawn.getType().name().equals(colour)) {
+                pawn.abortMove();
+            } else {
 
-                } else
-                    pawn.abortMove();
+                pawn.abortMove();
+                for (Pair<Integer, Integer> p : check.returnRealMoves()) {
+                    int l = p.getKey();
+                    int r = p.getValue();
+
+                    if (l * 2 == newX && r * 2 == newY) {
+                        try {
+                            PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
+                            printWriter.println(pawn.getType() + " " + x0 / 2 + " " + y0 / 2 + " " + newX / 2 + " " + newY / 2);
+                            Thread.sleep(300);
+                        } catch (IOException | InterruptedException e) {
+                            e.printStackTrace();
+                        }
+
+                    } else
+                        pawn.abortMove();
+                }
             }
-
         });
         return pawn;
     }
@@ -275,11 +320,18 @@ public class Client extends Application {
                 String toTokenise = bufferedReader.readLine();
                 StringTokenizer tokenizer = new StringTokenizer(toTokenise);
                 String type = tokenizer.nextToken();
-                String colour = tokenizer.nextToken();
+
                 int oldX = Integer.parseInt(tokenizer.nextToken());
                 int oldY = Integer.parseInt(tokenizer.nextToken());
                 int newX = Integer.parseInt(tokenizer.nextToken());
                 int newY = Integer.parseInt(tokenizer.nextToken());
+                int kogoTura = Integer.parseInt(tokenizer.nextToken());
+
+                String info = "Tura  " + setKogoTura(global_players, kogoTura + 1);
+                System.out.println(info);
+                Platform.runLater(() -> {
+                    label.setText(info);
+                });
                 Pawn pawn = board[oldX][oldY].getPawn();
                 pawn.move(newX, newY);
                 board[oldX][oldY].setPawn(null);
@@ -294,29 +346,59 @@ public class Client extends Application {
         Client c = new Client();
         String token = getConnection();
         String colour = getColour(token);
-        System.out.println(colour);
+        int i = Integer.parseInt(getI(token));
+        Platform.runLater(() -> {
+            label.setText("Tura " + setKogoTura(global_players, i));
+        });
         primaryStage.setTitle("CHECKERS " + colour);
         int number = c.getNumber(token);
+        System.out.println(number);
         int scale = c.getScale(number);
         int players = c.getPlayers(number);
+        global_players = players;
         ClientTask task = new ClientTask();
         new Thread(task).start();
         //todo bo widać to w innym kolorze XD
 
         ToolBar toolBar = new ToolBar();
+        // text = new Text("Tura " +setKogoTura(players,0));
+        //Text text = new Text();
         Button button1 = new Button("Koniec tury");
         button1.setOnAction(event -> {
 
-            WorkingThread.addI(WorkingThread.getI() + 1);
-            System.out.println(WorkingThread.getI() + 1);
-
         });
 
-        toolBar.getItems().addAll(button1);
+        toolBar.getItems().addAll(button1, label);
         VBox vbox = new VBox(toolBar);
         primaryStage.setScene(new Scene(makeMeBoard(scale, players, colour, vbox)));
         primaryStage.show();
 
+    }
+
+    private String setKogoTura(int players, int kogoTura) {
+        if (players < kogoTura) {
+            kogoTura = 0;
+        }
+        ArrayList kolorki = null;
+        switch (players) {
+            case 2:
+                kolorki = new ArrayList<String>(Arrays.asList("PURPLE", "RED"));
+                break;
+            case 3:
+                kolorki = new ArrayList<String>(Arrays.asList("YELLOW", "RED", "BLUE"));
+
+                break;
+            case 4:
+                kolorki = new ArrayList<String>(Arrays.asList("YELLOW", "GREEN", "OLIVE", "BLUE"));
+
+                break;
+            case 6:
+                kolorki = new ArrayList<String>(Arrays.asList("PURPLE", "YELLOW", "GREEN", "RED", "OLIVE", "BLUE"));
+                break;
+        }
+
+        assert kolorki != null;
+        return kolorki.get(kogoTura).toString();
     }
 
     public static void main(String args[]) {
