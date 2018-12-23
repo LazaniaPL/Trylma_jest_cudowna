@@ -4,7 +4,9 @@ import Trylma.players.*;
 
 public class TrylmaPawns {
 
+    public boolean error;
     public TrylmaPawns(int ilosc, int[][] trylma, int scale) {
+        error=false;
         switch (ilosc) {
             case 2:
                 createTwoPlayers(trylma, scale);
@@ -19,7 +21,7 @@ public class TrylmaPawns {
                 createSixPlayers(trylma, scale);
                 break;
             default:
-                System.out.println("error");
+               error=true;
                 break;
         }
     }

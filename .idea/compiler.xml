@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Macyna-Wpierdol" />
+        <module name="Trylma" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Macyna-Wpierdol" target="8" />
+      <module name="Trylma" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

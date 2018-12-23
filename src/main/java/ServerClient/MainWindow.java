@@ -15,14 +15,14 @@ import sun.font.FontFamily;
 
 public class MainWindow extends Application {
 
-    private Server server;
+    public Server server;
 
 
-    private void setStop(){
+    public void setStop(){
         server.stop();
     }
 
-    private void  setRunning(int playerNumbers, int scale,int bots){
+    public void  setRunning(int playerNumbers, int scale,int bots){
         server = new Server(8188, playerNumbers, scale);
         //WorkingBotClient workingBotClient=new WorkingBotClient();
         //workingBotClient.start(bots);

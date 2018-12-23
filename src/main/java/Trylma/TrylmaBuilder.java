@@ -87,10 +87,7 @@ public class TrylmaBuilder implements TrylmaInterface {
 
     }
 
-    @Override
-    public void removeTrylma(int[][] trylma) {
-        trylma = null;
-    }
+
 }
 
 

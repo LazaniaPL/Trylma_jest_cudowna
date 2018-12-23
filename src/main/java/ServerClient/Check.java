@@ -5,21 +5,21 @@ import javafx.util.Pair;
 
 import java.util.ArrayList;
 
-class Check {
+public class Check {
     private Tile[][] board;
 
     private int x;
     private int y;
     private ArrayList<Pair<Integer, Integer>> realMoves = new ArrayList<>();
 
-    Check(int x, int y, Tile[][] board) {
+    public Check(int x, int y, Tile[][] board) {
         this.x = x;
         this.y = y;
         this.board = board;
         start();
     }
 
-    ArrayList<Pair<Integer, Integer>> returnRealMoves() {
+    public ArrayList<Pair<Integer, Integer>> returnRealMoves() {
         return realMoves;
     }
 

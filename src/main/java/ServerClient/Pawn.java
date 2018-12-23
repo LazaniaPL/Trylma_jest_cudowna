@@ -5,7 +5,7 @@ import javafx.scene.shape.Circle;
 
 import static ServerClient.Client.TILE_SIZE;
 
-class Pawn extends Circle {
+public class Pawn extends Circle {
 
     private double mouseX, mouseY;
     private double OldX, OldY;
@@ -24,7 +24,7 @@ class Pawn extends Circle {
         return type;
     }
 
-    Pawn(PawnColors type, int x, int y){
+    public Pawn(PawnColors type, int x, int y){
         this.type = type;
         setRadius(TILE_SIZE);
         move(x,y);

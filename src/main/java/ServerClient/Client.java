@@ -37,7 +37,7 @@ public class Client extends Application {
     private Label label = new Label();
 
 
-    public Client() {
+     public Client() {
         try {
             socket = new Socket("localhost", 8188);
         } catch (IOException e) {
@@ -170,105 +170,8 @@ public class Client extends Application {
     }
 
 
-    //todo: przenieść do serwera i board też
-    private MoveResult tryMove(Pawn pawn, int newX, int newY, String colour) {
-
-        try {
-
-            if (board[newX / 2][newY / 2].hasPawn()) {
-                return new MoveResult(MoveType.NONE);
-            }
-
-            int x0 = toBoard(pawn.getOldX());
-            int y0 = toBoard(pawn.getOldY());
 
 
-            if ((((Math.abs(newX - x0) == 4 && newY - y0 == 0) || ((Math.abs(newX - x0)) == 2 && (Math.abs(newX - x0) == 2))) && pawn.getType().name().equals(colour))) {
-
-
-                return new MoveResult(MoveType.NORMAL);
-
-            } else if ((Math.abs(newX - x0) == 8 && newY - y0 == 0) || ((Math.abs(newX - x0)) == 4 && (Math.abs(newX - x0) == 4))) {
-
-                int x1 = x0 + (newX - x0) / 2;
-                int y1 = y0 + (newY - y0) / 2;
-
-                if ((board[x1 / 2][y1 / 2].hasPawn()) && (pawn.getType().name().equals(colour))) {
-
-                    return new MoveResult(MoveType.NORMAL);
-                }
-            }
-
-        } catch (NullPointerException e) {
-            return new MoveResult(MoveType.NONE);
-        }
-        return new MoveResult(MoveType.NONE);
-    }
-
-    /*
-        private Pawn makePawn(PawnColors type, int x, int y, String colour) {
-            Pawn pawn = new Pawn(type, x, y);
-            pawn.setOnMouseReleased(event -> {
-                int newX = toBoard(pawn.getLayoutX()) - 1;
-                int newY = toBoard(pawn.getLayoutY()) - 1;
-                System.out.println(newX / 2 + "  " + newY / 2);
-
-                MoveResult result = tryMove(pawn, newX, newY, colour);
-
-                int x0 = toBoard(pawn.getOldX());
-                int y0 = toBoard(pawn.getOldY());
-                System.out.println(x0 / 2 + " OLD " + y0 / 2);
-
-                switch (result.getType()) {
-
-                    case NONE:
-                        pawn.abortMove();
-                        break;
-                    case NORMAL:
-                        pawn.abortMove();
-                        try {
-                            PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
-                            printWriter.println(pawn.getType() + " " + colour + " " + x0 / 2 + " " + y0 / 2 + " " + newX / 2 + " " + newY / 2);
-                            Thread.sleep(300);
-                        } catch (IOException | InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                        break;
-                }
-            });
-            return pawn;
-        }
-    */
-    /*
-    private Pawn makePawn(PawnColors type, int x, int y, String colour) {
-        Pawn pawn = new Pawn(type, x, y);
-        pawn.setOnMouseReleased(event -> {
-            int newX = toBoard(pawn.getLayoutX()) - 1;
-            int newY = toBoard(pawn.getLayoutY()) - 1;
-            System.out.println(newX / 2 + "  " + newY / 2);
-
-            MoveResult result = tryMove(pawn, newX, newY, colour);
-
-            int x0 = toBoard(pawn.getOldX());
-            int y0 = toBoard(pawn.getOldY());
-            System.out.println(x0 / 2 + " OLD " + y0 / 2);
-
-
-
-                    pawn.abortMove();
-                    try {
-                        PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
-                        printWriter.println(pawn.getType()  + " " + x0 / 2 + " " + y0 / 2 + " " + newX / 2 + " " + newY / 2);
-                        Thread.sleep(300);
-                    } catch (IOException | InterruptedException e) {
-                        e.printStackTrace();
-                    }
-
-
-        });
-        return pawn;
-    }
-    */
 
     private Pawn makePawn(PawnColors type, int x, int y, String colour) {
         Pawn pawn = new Pawn(type, x, y);
